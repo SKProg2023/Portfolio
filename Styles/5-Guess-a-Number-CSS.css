@@ -1,0 +1,30 @@
+a:link{
+  color: pink;
+}
+a:visited{
+  color: green;
+}
+a:hover{
+  text-decoration: none;
+}
+body {
+background-color: beige;
+}
+h1 {
+ color:darkgrey;
+}
+.plink {
+font-size: 20px;
+}
+h1 {
+	position: fixed;
+	top: 50px;
+	left: 500px;
+	color: grey;
+}
+.projects {
+	position:absolute;
+	right: 10px;
+	top: 20px;
+	font-size: 25px;
+}
