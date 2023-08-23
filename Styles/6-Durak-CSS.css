@@ -1,0 +1,43 @@
+
+
+a:link{
+  color: pink;
+}
+a:visited{
+  color: green;
+}
+a:hover{
+  text-decoration: none;
+}
+body {
+background-color: beige;
+/* Prevent the user selecting text in the example */
+user-select: none;
+}
+
+.plink {
+font-size: 20px;
+}
+h1 {    
+	color:darkgrey;
+	position: fixed;
+	top: 50px;
+	left: 500px;
+	color: grey;
+}
+.projects {
+	position:fixed;
+	right: 10px;
+	top: 20px;
+	font-size: 25px;
+}
+
+
+#Start {
+    position: fixed;
+    left: 43%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    /*width: xxx; // Any width will be fine
+    height: xxx: // Any height will be fine*/
+}
