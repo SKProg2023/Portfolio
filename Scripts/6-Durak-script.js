@@ -43,8 +43,8 @@ let player2 = {}; // computer's cards on the right of the screen
 let suit = ["Hearts", "Diamonds", "Clubs", "Spades"];
 let shuffledDeck = {}; //variable for "Shuffle" function
 let trump = ""; // var referencing chosen trump suit
-let topPos = 35; // variable for coordinates
-let leftPos = 5; // variable for coordinates
+let topPos = 10; // variable for coordinates
+let leftPos = 2; // variable for coordinates
 let lf = "leftpic";
 let rt = "righttpic";
 let bt = "bottompic";
@@ -62,111 +62,105 @@ let GametoView = function () {
   NoteField1 = document.createElement('p'); //creating top notification field
   NoteField1.id ="NF1";
   NoteField1.innerHTML = "Shuffle the deck";
-  NoteField1.style = `position:fixed; left: 25%; top: 74%; font-size: 25px; max-width:50%`;
+  NoteField1.style = `position:absolute; left: 25vw; top: 40vw; font-size: 2vw; max-width:50%`;
   document.body.appendChild(NoteField1);
 
   NoteField2 = document.createElement('p'); //creating bottom notification field
   NoteField2.id ="NF2";
   NoteField2.innerHTML = "or Deal for two";
-  NoteField2.style = `position:fixed; left: 25%; top: 82%; font-size: 25px; max-width:50%`;
+  NoteField2.style = `position:absolute; left: 25vw; top: 42vw; font-size: 2vw; max-width:50%`;
   document.body.appendChild(NoteField2);
 
   mainDeck = document.createElement("img"); //creating an image of a deck
   mainDeck.id = "mD";
   mainDeck.src = "Images/6-Durak/Hidden.png";
-  //mainDeck.style = "position: absolute; left: 500px; top: 130px; border: solid"
-  mainDeck.style = `position: fixed; left: 43%; top: 21%; border: solid;
-  max-width:15%`
+  mainDeck.style = `position: absolute; left: 43vw; top: 12vw; border: solid;  max-width:8vw`
   document.body.appendChild(mainDeck);
 
   ShuffleButton = document.createElement("button"); // creating a button to shuffle the deck
   ShuffleButton.id = "SB";
   ShuffleButton.innerHTML = "Shuffle";
-  ShuffleButton.style = `position: fixed; left: 35%; top: 34%;
-  font-size: 30px, text-align: center`;
+  ShuffleButton.style = `position: absolute; left: 35vw; top: 15vw; max-width: 8vw;
+  font-size: 1.5vw; text-align: center;`;
   ShuffleButton.addEventListener("click", shuffle);
   document.body.appendChild(ShuffleButton);
 
   DealButton = document.createElement("button"); //creating a button to deal the cards for two players
   DealButton.id = "DB";
-  DealButton.innerHTML = "Deal for two";
-  DealButton.style = `position: fixed; left: 52%; top: 34%;
-  font-size: 30px, text-align: center`;
+  DealButton.innerHTML = "Deal";
+  DealButton.style = `position: absolute; left: 55vw; top: 15vw; max-width: 8vw;
+  font-size: 1.5vw; text-align: center;`;
   DealButton.addEventListener("click", deal);
   document.body.appendChild(DealButton);
 
   for(let i = 1; i < 37; i++) { // creating future placements of user's cards
     if (i === 13) {
-      leftPos = 15;
-      topPos = 35;
+      leftPos = 12;
+      topPos = 10;
     }
     else if (i === 25) {
-      leftPos = 25;
-      topPos = 35;
+      leftPos = 22;
+      topPos = 10;
     }
     lf = document.createElement('img');
     lf.id = "lp"+i;
-    lf.style = `position: fixed; left: ${leftPos}%; top: ${topPos}%;
-    max-width:15%`;
-    topPos += 4;
+    lf.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw; max-width:8vw`;
+    topPos += 2;
     document.body.appendChild(lf);
   }
   leftPos = 75;
-  topPos = 35;
+  topPos = 10;
   for(let i = 1; i < 37; i++) { // creating future placements of computers' cards
     if (i === 13) {
       leftPos = 85;
-      topPos = 35;
+      topPos = 10;
     }
     else if (i === 25) {
       leftPos = 95;
-      topPos = 35;
+      topPos = 10;
     }
     rt = document.createElement('img');
     rt.id = "rp"+i;
-    rt.style = `position: fixed; left: ${leftPos}%; top: ${topPos}%; max-width:15%`
-    topPos += 4;
+    rt.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw; max-width:8vw`;
+    topPos += 2;
     document.body.appendChild(rt);
   }
   leftPos = 75; // Hiding computer's cards
-  topPos = 35;
+  topPos = 10;
   for(let i = 1; i < 37; i++) {
     if (i === 13) {
       leftPos = 85;
-      topPos = 35;
+      topPos = 10;
     }
     else if (i === 25) {
       leftPos = 95;
-      topPos = 35;
+      topPos = 10;
     }
     rtH = document.createElement('img');
     rtH.id = "rpH"+i;
-    rtH.style = `position: fixed; left: ${leftPos}%; top: ${topPos}%;
-    max-width:15%`
-    topPos += 4;
+    rtH.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw; max-width:8vw`;
+    topPos += 2;
     document.body.appendChild(rtH);
   }
   leftPos = 25; // creating future placements of attacking cards
-  topPos = 55;
+  topPos = 29;
   for(let i = 1; i < 7; i++) {
     btUp = document.createElement('img');
     btUp.id = "btU"+i;
     btUparray.push("btU"+i);
     btUp.src = "Images/6-Durak/Blanco.png";
-    btUp.style = `position: fixed; left: ${leftPos}%; top: ${topPos}%;
-    max-width:15%`;
+    btUp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw; max-width:8vw`;
     leftPos += 8;
     document.body.appendChild(btUp);
   }
   leftPos = 25; // creating future placements of defending cards
-  topPos = 60;
+  topPos = 31;
   for(let i = 1; i < 7; i++) {
     btBt = document.createElement('img');
     btBt.id = "btB"+i;
     btBtarray.push("btB"+i);
     btBt.src = "Images/6-Durak/Blanco.png";
-    btBt.style = `position: fixed; left: ${leftPos}%; top: ${topPos}%;
-    max-width:15%`;
+    btBt.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw; max-width:8vw`;
     leftPos += 8;
     document.body.appendChild(btBt);
   }
@@ -205,46 +199,28 @@ let deal = async function() {
   showTrumpCard = document.createElement("img");
   showTrumpCard.src = `Images/6-Durak/${trumpBottomCard}.png`
   showTrumpCard.id = "TC";
-  showTrumpCard.style = `position: fixed; left: 43%; top: 29%;
-  border: solid; max-width:15%`;
+  showTrumpCard.style = `position: absolute; left: 43vw; top: 16vw; border: solid; max-width:8vw`
   document.body.appendChild(showTrumpCard);
-  document.getElementById("mD").style =`position: fixed; left: 43%; top: 21%;
-  border: solid; transform: rotate(90deg); max-width:15%`; //repositioning image of main deck
+  document.getElementById("mD").style =`position: absolute; left: 43vw; top: 12vw;
+  border: solid; transform: rotate(90deg); max-width:8vw`; //repositioning image of main deck
   document.body.appendChild(mainDeck);
   document.getElementById("SB").remove();
   document.getElementById("DB").remove();
 
-  //PassButton = document.createElement("button"); //creating a button to pass move to computer
-  //PassButton.id = "PB";
-  //PassButton.innerHTML = "PASS";
-  //PassButton.style = "position: fixed; left: 30%; top: 32%; max-width:10%";
-  //PassButton.addEventListener("click", topUp3);
-  //PassButton.title="Pass the move to the computer";
-  //document.body.appendChild(PassButton);
-
   PassPic = document.createElement("img");
   PassPic.src = `Images/6-Durak/PASS.png`;
   PassPic.id = `PP`;
-  PassPic.style = `position: fixed; left: 25%; top: 28%;
-  border-style: inset; border: solid; max-width:15%`;
+  PassPic.style = `position: absolute; left: 30vw; top: 15vw; max-width: 8vw;
+   border-style: inset; border: solid;`;
   PassPic.style.visibility = "hidden";
   PassPic.addEventListener("click", topUp3);
   document.body.appendChild(PassPic);
 
-
-  //TakeButton = document.createElement("button"); //creating a button to take all cards from table
-  //TakeButton.id = "TB";
-  //TakeButton.innerHTML = "TAKE";
-  //TakeButton.style = "position: fixed; left: 30%; top: 37%; max-width:10%";
-  //TakeButton.addEventListener("click", takeAll);
-  //TakeButton.title="Take all cards from the desk";
-  //document.body.appendChild(TakeButton);
-
   TakePic = document.createElement("img");
   TakePic.src = `Images/6-Durak/TAKE.png`;
   TakePic.id = `TP`;
-  TakePic.style = `position: fixed; left: 60%; top: 28%;
-  border-style: inset; border: solid; max-width:15%`;
+  TakePic.style = `position: absolute; left: 56vw; top: 15vw; max-width: 8vw;
+  border-style: inset; border: solid;`;
   TakePic.style.visibility = "hidden";
   TakePic.addEventListener("click", takeAll);
   document.body.appendChild(TakePic);
@@ -267,7 +243,7 @@ let deal = async function() {
   if (p1Score < p2Score) {
     document.getElementById("NF1").innerHTML = "You have lowest ranking trump card";
     document.getElementById("NF2").innerHTML = "Your move";
-    await new Promise(r => setTimeout(r, 3000));
+    await new Promise(r => setTimeout(r, 2000));
     document.getElementById("NF1").innerHTML = "";
     document.getElementById("NF2").innerHTML = "";
     moveTracking = 0;
@@ -278,7 +254,7 @@ let deal = async function() {
   if (p1Score > p2Score) {
     document.getElementById("NF1").innerHTML = "Computer has lowest ranking trump card";
     document.getElementById("NF2").innerHTML = "Computer's move";
-    await new Promise(r => setTimeout(r, 3000));
+    await new Promise(r => setTimeout(r, 2000));
     document.getElementById("NF1").innerHTML = "";
     document.getElementById("NF2").innerHTML = "";
     moveTracking = 1;
@@ -300,7 +276,7 @@ let deal = async function() {
     if (p1Score < p2Score) {
       document.getElementById("NF1").innerHTML = "You have lowest ranking card";
       document.getElementById("NF2").innerHTML = "Your move";
-      await new Promise(r => setTimeout(r, 3000));
+      await new Promise(r => setTimeout(r, 2000));
       document.getElementById("NF1").innerHTML = "";
       document.getElementById("NF2").innerHTML = "";
       moveTracking = 0;
@@ -311,7 +287,7 @@ let deal = async function() {
     if (p1Score > p2Score) {
       document.getElementById("NF1").innerHTML = "Computer has lowest ranking card";
       document.getElementById("NF2").innerHTML = "Computer's move";
-      await new Promise(r => setTimeout(r, 3000));
+      await new Promise(r => setTimeout(r, 2000));
       document.getElementById("NF1").innerHTML = "";
       document.getElementById("NF2").innerHTML = "";
       moveTracking = 1;
@@ -324,7 +300,7 @@ let deal = async function() {
       if (randomMove == 0) {
         document.getElementById("NF1").innerHTML = "No trumps dealt and lowest cards are the same";
         document.getElementById("NF2").innerHTML = "Random rolls your move";
-        await new Promise(r => setTimeout(r, 3000));
+        await new Promise(r => setTimeout(r, 2000));
         document.getElementById("NF1").innerHTML = "";
         document.getElementById("NF2").innerHTML = "";
         moveTracking = 0;
@@ -335,7 +311,7 @@ let deal = async function() {
       if (randomMove == 1) {
         document.getElementById("NF1").innerHTML = "No trumps dealt and lowest cards are the same";
         document.getElementById("NF2").innerHTML = "Random rolls computer's move";
-        await new Promise(r => setTimeout(r, 3000));
+        await new Promise(r => setTimeout(r, 2000));
         document.getElementById("NF1").innerHTML = "";
         document.getElementById("NF2").innerHTML = "";
         moveTracking = 1;
@@ -361,7 +337,6 @@ let arrangePlayer1 = function () { //re-arranging user's logical and visible car
     if (cardA > cardB) {
       return 1;
     }
-    // cards must be equal
     return 0;
   }));
   picNumber = 1;
@@ -391,7 +366,6 @@ let arrangePlayer2 = function () { //re-arranging computer's logical and visible
     if (cardA > cardB) {
       return 1;
     }
-    // cards must be equal
     return 0;
   }));
   picNumber = 1;
@@ -407,7 +381,7 @@ let arrangePlayer2 = function () { //re-arranging computer's logical and visible
 let shuffle = async function() { //randomly re-ordering main deck
   document.getElementById("NF1").innerHTML = "The deck was Shuffled";
   document.getElementById("NF2").innerHTML = "";
-  await new Promise(r => setTimeout(r, 1000));
+  await new Promise(r => setTimeout(r, 800));
   document.getElementById("NF1").innerHTML = "Shuffle the deck";
   document.getElementById("NF2").innerHTML = "or Deal for two";
   while (Object.keys(talon).length != 0) {
@@ -548,48 +522,43 @@ let topUp1 = async function () { //topping up if computer fails to defend
   arrangePlayer2();
 
   moveTracking = 0;
-  //document.getElementById("PB").disabled = false;
   document.getElementById("PP").style.visibility = "visible";
   clearDesk();
 
   if (Object.keys(player1) == 0 && Object.keys(player2) == 0) {
-    //document.getElementById("PB").disabled = true;
-    document.getElementById("PP").style.visibility = "hidden";
-    //document.getElementById("TB").disabled = true;
+     document.getElementById("PP").style.visibility = "hidden";
     document.getElementById("TP").style.visibility = "hidden";
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`
-
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
     return document.getElementById("NF1").innerHTML = "Stalemate";
   }
 
   if (Object.keys(player1) == 0) {
-    //document.getElementById("PB").disabled = true;
     document.getElementById("PP").style.visibility = "hidden";
-    //document.getElementById("TB").disabled = true;
     document.getElementById("TP").style.visibility = "hidden";
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
     return document.getElementById("NF1").innerHTML = "You win";
   }
 
   if (Object.keys(player2) == 0) {
-    //document.getElementById("PB").disabled = true;
     document.getElementById("PP").style.visibility = "hidden";
-    //document.getElementById("TB").disabled = true;
     document.getElementById("TP").style.visibility = "hidden";
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
     return document.getElementById("NF1").innerHTML = "Computer wins";
@@ -658,50 +627,44 @@ let topUp2 = async function () { //topping up if computer finishes attack succes
   }
   arrangePlayer1();
   arrangePlayer2();
-  //document.getElementById("PB").disabled = false;
   document.getElementById("PP").style.visibility = "visible";
   document.getElementById("TP").style.visibility = "hidden";
   moveTracking = 0;
   clearDesk();
   if (Object.keys(player1) == 0 && Object.keys(player2) == 0) {
-    //document.getElementById("PB").disabled = true;
     document.getElementById("PP").style.visibility = "hidden";
-    //document.getElementById("TB").disabled = true;
     document.getElementById("TP").style.visibility = "hidden";
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`;
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
     return document.getElementById("NF1").innerHTML = "Stalemate";
   }
 
   if (Object.keys(player1) == 0) {
-    //document.getElementById("PB").disabled = true;
     document.getElementById("PP").style.visibility = "hidden";
-    //document.getElementById("TB").disabled = true;
     document.getElementById("TP").style.visibility = "hidden";
-
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`;
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
     return document.getElementById("NF1").innerHTML = "You win";
   }
 
   if (Object.keys(player2) == 0) {
-    //document.getElementById("PB").disabled = true;
     document.getElementById("PP").style.visibility = "hidden";
-    //document.getElementById("TB").disabled = true;
     document.getElementById("TP").style.visibility = "hidden";
-
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`;
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
 
@@ -773,14 +736,13 @@ let topUp3 = async function () { //topping up if user fails to defend
   arrangePlayer2();
   clearDesk();
   if (Object.keys(player1) == 0 && Object.keys(player2) == 0) {
-    //document.getElementById("PB").disabled = true;
     document.getElementById("PP").style.visibility = "hidden";
-    //document.getElementById("TB").disabled = true;
     document.getElementById("TP").style.visibility = "hidden";
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`;
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
 
@@ -788,14 +750,13 @@ let topUp3 = async function () { //topping up if user fails to defend
   }
 
   if (Object.keys(player1) == 0) {
-    //document.getElementById("PB").disabled = true;
-    document.getElementById("PP").style.visibility = 'hidden';
-    //document.getElementById("TB").disabled = true;
+     document.getElementById("PP").style.visibility = 'hidden';
     document.getElementById("TP").style.visibility = 'hidden';
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`;
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
 
@@ -803,20 +764,18 @@ let topUp3 = async function () { //topping up if user fails to defend
   }
 
   if (Object.keys(player2) == 0) {
-    //document.getElementById("PB").disabled = true;
     document.getElementById("PP").style.visibility = 'hidden';
-    //document.getElementById("TB").disabled = true;
     document.getElementById("TP").style.visibility = 'hidden';
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: fixed; left: 50%; top: 50%`;
+    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+     text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
 
     return document.getElementById("NF1").innerHTML = "Computer wins.";
   }
-  //document.getElementById("TB").disabled = false;
   document.getElementById("TP").style.visibility = "visible";
 
   player2move(); 
@@ -824,7 +783,6 @@ let topUp3 = async function () { //topping up if user fails to defend
 
 let move = async function (event) { // player1's (user's) move
   if (moveTracking == 0) {
-    //document.getElementById("TB").disabled = true;
     document.getElementById("TP").style.visibility = "hidden";
     let breakCheck2 = true;
     let moveCheck2 = true; // variable to check if computer can make a move.
@@ -951,7 +909,6 @@ let move = async function (event) { // player1's (user's) move
   }
 
   if (moveTracking == 1) { //logic for user's defense
-    //document.getElementById("PB").disabled = true;
     document.getElementById("PP").style.visibility = "hidden";
     for (let i of btUparray) {
       if (i.startsWith("bt") == true) {
@@ -1009,8 +966,6 @@ let player2move = async function () { // computer's attack logic
   await new Promise(r => setTimeout(r, 1500));
   document.getElementById("NF1").innerHTML = "";
   document.getElementById("NF2").innerHTML = "";
-  //document.getElementById("PB").disabled = true;
-
   let minValuePlayer2= 0;
   let currentValuePlayer2 = 0;
   let currentCardPlayer2 = "";
@@ -1160,8 +1115,6 @@ let restart = function () { // function to prepare the code for another play
   document.getElementById("RB").remove();
   document.getElementById("TC").remove();
   document.getElementById("mD").remove();
-  //document.getElementById("PB").remove();
-  //document.getElementById("TB").remove();
   document.getElementById("PP").remove();
   document.getElementById("TP").remove();
   document.getElementById("NF1").remove();
@@ -1181,8 +1134,6 @@ let restart = function () { // function to prepare the code for another play
   StartButton = document.createElement("button"); 
   StartButton.id = "Start";
   StartButton.innerHTML = "Start";
-  //StartButton.style = `position: absolute; left: 550px; top: 150px;
-  //font-size: 40px, text-align: center`;
   StartButton.addEventListener("click", GametoView);
   document.body.appendChild(StartButton);
 
