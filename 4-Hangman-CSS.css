@@ -1,0 +1,17 @@
+a:link{
+  text-decoration: none;
+}
+body {
+background-color: beige;
+}
+h1 {    
+	color:darkgrey;
+	position: absolute;
+	top: 8vw;
+	left: 37vw;
+	color: grey;
+	font-size: 2.2vw;
+}
+.plink {
+font-size: 2.vw;
+}
