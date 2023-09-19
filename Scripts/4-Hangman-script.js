@@ -155,7 +155,7 @@ let GametoView = function() {
     UsedField = document.createElement('p');  //creating field to show used letters
     UsedField.id ="UF";
     UsedField.innerHTML = "Used letters: ";
-    UsedField.style = `position:absolute; left: 2vw; top: 33vw;
-     font-size: 2vw; max-width 10vw`
+    UsedField.style = `position:absolute; left: 2vw; top: 35vw;
+     font-size: 2vw; max-width: 20vw`
     document.body.appendChild(UsedField);
 }
