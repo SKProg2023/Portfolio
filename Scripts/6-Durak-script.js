@@ -62,25 +62,25 @@ let GametoView = function () {
   NoteField1 = document.createElement('p'); //creating top notification field
   NoteField1.id ="NF1";
   NoteField1.innerHTML = "Shuffle the deck";
-  NoteField1.style = `position:absolute; left: 25vw; top: 40vw; font-size: 2vw; max-width:50%`;
+  NoteField1.style = `position:absolute; left: 25vw; top: 35vw; font-size: 2vw; max-width:50%`;
   document.body.appendChild(NoteField1);
 
   NoteField2 = document.createElement('p'); //creating bottom notification field
   NoteField2.id ="NF2";
   NoteField2.innerHTML = "or Deal for two";
-  NoteField2.style = `position:absolute; left: 25vw; top: 42vw; font-size: 2vw; max-width:50%`;
+  NoteField2.style = `position:absolute; left: 25vw; top: 37vw; font-size: 2vw; max-width:50%`;
   document.body.appendChild(NoteField2);
 
   mainDeck = document.createElement("img"); //creating an image of a deck
   mainDeck.id = "mD";
   mainDeck.src = "Images/6-Durak/Hidden.png";
-  mainDeck.style = `position: absolute; left: 43vw; top: 12vw; border: solid;  max-width:8vw`
+  mainDeck.style = `position: absolute; left: 43vw; top: 7vw; border: solid;  max-width:8vw`
   document.body.appendChild(mainDeck);
 
   ShuffleButton = document.createElement("button"); // creating a button to shuffle the deck
   ShuffleButton.id = "SB";
   ShuffleButton.innerHTML = "Shuffle";
-  ShuffleButton.style = `position: absolute; left: 35vw; top: 15vw; max-width: 8vw;
+  ShuffleButton.style = `position: absolute; left: 35vw; top: 10vw; max-width: 8vw;
   font-size: 1.5vw; text-align: center;`;
   ShuffleButton.addEventListener("click", shuffle);
   document.body.appendChild(ShuffleButton);
@@ -88,7 +88,7 @@ let GametoView = function () {
   DealButton = document.createElement("button"); //creating a button to deal the cards for two players
   DealButton.id = "DB";
   DealButton.innerHTML = "Deal";
-  DealButton.style = `position: absolute; left: 55vw; top: 15vw; max-width: 8vw;
+  DealButton.style = `position: absolute; left: 55vw; top: 10vw; max-width: 8vw;
   font-size: 1.5vw; text-align: center;`;
   DealButton.addEventListener("click", deal);
   document.body.appendChild(DealButton);
@@ -143,7 +143,7 @@ let GametoView = function () {
     document.body.appendChild(rtH);
   }
   leftPos = 25; // creating future placements of attacking cards
-  topPos = 29;
+  topPos = 24;
   for(let i = 1; i < 7; i++) {
     btUp = document.createElement('img');
     btUp.id = "btU"+i;
@@ -154,7 +154,7 @@ let GametoView = function () {
     document.body.appendChild(btUp);
   }
   leftPos = 25; // creating future placements of defending cards
-  topPos = 31;
+  topPos = 26;
   for(let i = 1; i < 7; i++) {
     btBt = document.createElement('img');
     btBt.id = "btB"+i;
@@ -199,9 +199,9 @@ let deal = async function() {
   showTrumpCard = document.createElement("img");
   showTrumpCard.src = `Images/6-Durak/${trumpBottomCard}.png`
   showTrumpCard.id = "TC";
-  showTrumpCard.style = `position: absolute; left: 43vw; top: 16vw; border: solid; max-width:8vw`
+  showTrumpCard.style = `position: absolute; left: 43vw; top: 11vw; border: solid; max-width:8vw`
   document.body.appendChild(showTrumpCard);
-  document.getElementById("mD").style =`position: absolute; left: 43vw; top: 12vw;
+  document.getElementById("mD").style =`position: absolute; left: 43vw; top: 7vw;
   border: solid; transform: rotate(90deg); max-width:8vw`; //repositioning image of main deck
   document.body.appendChild(mainDeck);
   document.getElementById("SB").remove();
@@ -210,7 +210,7 @@ let deal = async function() {
   PassPic = document.createElement("img");
   PassPic.src = `Images/6-Durak/PASS.png`;
   PassPic.id = `PP`;
-  PassPic.style = `position: absolute; left: 30vw; top: 15vw; max-width: 8vw;
+  PassPic.style = `position: absolute; left: 30vw; top: 10vw; max-width: 8vw;
    border-style: inset; border: solid;`;
   PassPic.style.visibility = "hidden";
   PassPic.addEventListener("click", topUp3);
@@ -219,7 +219,7 @@ let deal = async function() {
   TakePic = document.createElement("img");
   TakePic.src = `Images/6-Durak/TAKE.png`;
   TakePic.id = `TP`;
-  TakePic.style = `position: absolute; left: 56vw; top: 15vw; max-width: 8vw;
+  TakePic.style = `position: absolute; left: 56vw; top: 10vw; max-width: 8vw;
   border-style: inset; border: solid;`;
   TakePic.style.visibility = "hidden";
   TakePic.addEventListener("click", takeAll);
@@ -531,7 +531,7 @@ let topUp1 = async function () { //topping up if computer fails to defend
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
@@ -544,7 +544,7 @@ let topUp1 = async function () { //topping up if computer fails to defend
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
@@ -557,7 +557,7 @@ let topUp1 = async function () { //topping up if computer fails to defend
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
@@ -637,7 +637,7 @@ let topUp2 = async function () { //topping up if computer finishes attack succes
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
@@ -650,7 +650,7 @@ let topUp2 = async function () { //topping up if computer finishes attack succes
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
@@ -663,7 +663,7 @@ let topUp2 = async function () { //topping up if computer finishes attack succes
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
@@ -741,7 +741,7 @@ let topUp3 = async function () { //topping up if user fails to defend
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
@@ -755,7 +755,7 @@ let topUp3 = async function () { //topping up if user fails to defend
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
@@ -769,7 +769,7 @@ let topUp3 = async function () { //topping up if user fails to defend
     RestartButton = document.createElement("button"); // creating a button to restart the game
     RestartButton.id = "RB";
     RestartButton.innerHTML = "Play again";
-    RestartButton.style = `position: absolute; left: 43vw; top: 15vw; font-size: 1.5vw;
+    RestartButton.style = `position: absolute; left: 43vw; top: 10vw; font-size: 1.5vw;
      text-align: center;`
     RestartButton.addEventListener("click", restart);
     document.body.appendChild(RestartButton);
