@@ -4,17 +4,21 @@ let words = ["change", "control", "security", "factory", "stranger", "inspector"
 "database", "profession", "criticism", "category", "courage", "efficiency", "addition",
 "pollution", "payment", "understanding", "feedback", "suggestion", "restaurant", "philosophy",
 "employment", "hospital", "charity", "success", "surgery", "classroom", "airport", "language",
-"college", "percentage", "maintenance", "bathroom", "signature", "education", "passenger"];
+"college", "percentage", "maintenance", "bathroom", "signature", "education", "passenger",
+"elephant", "allegator", "universe", "festival", "skyscraper", "overcast", "pronunciation",
+"presentation", "suggestion", "diagram", "modification", "language", "research", "increase"];
+let word = ""; //variable for random word to guess
 let new_word = []; //variable to put guessed letters in proper places
 let originalWord = ""; //variable to keep originally picked word
 let tries = 0; //variable to count tries, max = 7
 let guess = ""; //variable for accepting user's input
-let leftpos = 400; //corrdinates for buttons and such
-let toppos = 300;  //corrdinates for buttons and such
+let leftpos = 30; //corrdinates for buttons and such
+let toppos = 28;  //corrdinates for buttons and such
 let lettersPlace = 0; //
 let PicOrder = 0; // variable to change Hanging picrute
 let UFcheck = []; // variable to collect used letters for Used Letters field
 const guessMatch = /[A-Za-z]/; //creating regex to check for inproper user's input
+
 let SubmittoView = function () {
     let guess = GuessField.value.toLowerCase(); //creating variable to accept user's input
     if (UFcheck.includes(" " + guess)) {
@@ -25,10 +29,10 @@ let SubmittoView = function () {
     }
     else if (word.includes(guess)) {
         while(word.includes(guess)) {      
-        let letter = word.indexOf(guess);
-        document.getElementById(word.indexOf(guess)).value = guess;
-        new_word[letter] = guess;
-        word[letter] = "-";
+            let letter = word.indexOf(guess);
+            document.getElementById("lettersId" + letter).value = guess;
+            new_word[letter] = guess;
+            word[letter] = "-";
         }
         UFcheck.push(" " + guess);
         document.getElementById("UF").innerHTML = "Used letters: " + UFcheck.sort();
@@ -43,11 +47,10 @@ let SubmittoView = function () {
             RestartButton = document.createElement('button'); //creating 'Restart' button
             RestartButton.id ="RB";
             RestartButton.innerHTML = "Start over";
-            RestartButton.style = `position:absolute; left: 600px; top: 400px;
-             font-size: 40px; text-align: center`
+            RestartButton.style = `position:absolute; left: 46vw; top: 32vw;
+            font-size: 2.3vw; text-align: center; max-width: 15vw`
             RestartButton.addEventListener("click", GameRemoval);
             document.body.appendChild(RestartButton);
-
         }
     }
     else {
@@ -63,8 +66,8 @@ let SubmittoView = function () {
             RestartButton = document.createElement('button'); //creating 'Restart' button
             RestartButton.id ="RB";
             RestartButton.innerHTML = "Start over";
-            RestartButton.style = `position:absolute; left: 600px; top: 400px;
-             font-size: 40px; text-align: center`
+            RestartButton.style = `position:absolute; left: 46vw; top: 32vw;
+            font-size: 2.3vw; text-align: center; max-width: 15vw`
             RestartButton.addEventListener("click", GameRemoval);
             document.body.appendChild(RestartButton);
         }
@@ -75,15 +78,13 @@ let SubmittoView = function () {
             document.getElementById("Hanging").src = `Images/4-Hangman/4-${PicOrder}.png`;
             UFcheck.push(" " + guess);
             document.getElementById("UF").innerHTML = "Used letters: " + UFcheck.sort();
-            
         }
-   }
-   
+    } 
 }
 let GameRemoval = function () { //deleting html elements so GametoView function 
     lettersPlace = 0;           //can create them again
     for (let i of word){
-        document.getElementById(`${lettersPlace}`).remove();
+        document.getElementById("lettersId" + lettersPlace).remove();
         lettersPlace+=1;
     }
     lettersPlace = 0;
@@ -92,33 +93,30 @@ let GameRemoval = function () { //deleting html elements so GametoView function
     document.getElementById("RB").remove();
     document.getElementById("NF").remove();
     document.getElementById("GF").remove();
-    word = null;
+    word = "";
     new_word = [];
     tries = 0;
-    guess = null;
+    guess = "";
     PicOrder = 0;
     UFcheck = [];
-    letter = null;
-    leftpos = 400;
+    letter = "";
+    leftpos = 30;
     StartButton = document.createElement('button'); //creating temporaty "Start" button
     StartButton.id ="Start";                        //since GametoView function deletes it
     StartButton.innerHTML = "START";
-    StartButton.style = `position: fixed; top: 150px; left: 550px; color:brown`
+    StartButton.style = `position: absolute; top: 15vw; left: 40vw; color:brown`
     StartButton.addEventListener("click", GametoView);
     document.body.appendChild(StartButton);
-    
-
 }
-let GametoView = function() {
 
+let GametoView = function() {
     document.getElementById("Start").remove(); //removing start button
     NoteField = document.createElement('p'); //creating correct/wrong notification field
     NoteField.id ="NF";
     NoteField.innerHTML = "";
-    NoteField.style = `position:absolute; left: 450px; top: 430px;
-     height: 30px; size: 30; font-size: 30px;`
+    NoteField.style = `position:absolute; left: 28vw; top: 36vw; font-size: 2vw; max-width: 50%;`
     document.body.appendChild(NoteField);
-    let word = words[Math.floor(Math.random()*words.length)].split(""); //computer selects random word
+    word = words[Math.floor(Math.random()*words.length)].split(""); //computer selects random word
     originalWord = word.join(" ");
     window.word=word; //making 'word' variable global
     for (let l of word){
@@ -127,13 +125,12 @@ let GametoView = function() {
     for (let i of word){
         letters = document.createElement('input'); //creating readonly field that will show correctly
         letters.type ="text";                      //guessed characters
-        letters.id =`${lettersPlace}`
+        letters.id ="lettersId" + lettersPlace;
         lettersPlace+=1;
         letters.value = " ";
-        letters.style = `position:absolute; left: ${leftpos}; top: ${toppos};
-        background-color:white; height: 50px; width: 50px; size: 40; font-size: 40px;
-        text-align: center;`
-        leftpos+=50
+        letters.style = `position:absolute; left: ${leftpos}vw; top: ${toppos}vw;
+        background-color:white; font-size: 2.5vw; max-width: 4vw; text-align: center;`
+        leftpos+=4
         letters.readOnly = true;
         document.body.appendChild(letters);
     }
@@ -143,22 +140,22 @@ let GametoView = function() {
     GuessField.type ="text";
     GuessField.value = "";
     GuessField.maxLength="1"
-    GuessField.style = `position:absolute; left: 550px; top: 400px;
-    background-color:white; height: 50px; width: 50px; size: 40; font-size: 40px; text-align: center`
+    GuessField.style = `position:absolute; left: 42vw; top: 32vw;
+    background-color:white; font-size: 2.3vw; text-align: center; max-width: 4vw`
     document.body.appendChild(GuessField);
 
     SubmitButton = document.createElement('button'); //creating button to submit user's characters
     SubmitButton.id ="SB";
     SubmitButton.innerHTML = "Submit";
-    SubmitButton.style = `position:absolute; left: 600px; top: 400px;
-     font-size: 40px; text-align: center`
+    SubmitButton.style = `position:absolute; left: 46vw; top: 32vw;
+     font-size: 2.3vw; text-align: center; max-width: 10vw`
     SubmitButton.addEventListener("click", SubmittoView);
     document.body.appendChild(SubmitButton);
 
     UsedField = document.createElement('p');  //creating field to show used letters
     UsedField.id ="UF";
     UsedField.innerHTML = "Used letters: ";
-    UsedField.style = `position:absolute; left: 50px; top: 400px;
-     height: 20px; size: 20; font-size: 20px;`
+    UsedField.style = `position:absolute; left: 2vw; top: 30vw;
+     font-size: 2vw; max-width 10vw`
     document.body.appendChild(UsedField);
 }
