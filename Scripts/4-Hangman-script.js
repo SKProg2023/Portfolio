@@ -13,7 +13,7 @@ let originalWord = ""; //variable to keep originally picked word
 let tries = 0; //variable to count tries, max = 7
 let guess = ""; //variable for accepting user's input
 let leftpos = 30; //corrdinates for buttons and such
-let toppos = 28;  //corrdinates for buttons and such
+let toppos = 23;  //corrdinates for buttons and such
 let lettersPlace = 0; //
 let PicOrder = 0; // variable to change Hanging picrute
 let UFcheck = []; // variable to collect used letters for Used Letters field
@@ -47,7 +47,7 @@ let SubmittoView = function () {
             RestartButton = document.createElement('button'); //creating 'Restart' button
             RestartButton.id ="RB";
             RestartButton.innerHTML = "Start over";
-            RestartButton.style = `position:absolute; left: 46vw; top: 32vw;
+            RestartButton.style = `position:absolute; left: 45vw; top: 29vw;
             font-size: 2.3vw; text-align: center; max-width: 15vw`
             RestartButton.addEventListener("click", GameRemoval);
             document.body.appendChild(RestartButton);
@@ -66,7 +66,7 @@ let SubmittoView = function () {
             RestartButton = document.createElement('button'); //creating 'Restart' button
             RestartButton.id ="RB";
             RestartButton.innerHTML = "Start over";
-            RestartButton.style = `position:absolute; left: 46vw; top: 32vw;
+            RestartButton.style = `position:absolute; left: 45vw; top: 29vw;
             font-size: 2.3vw; text-align: center; max-width: 15vw`
             RestartButton.addEventListener("click", GameRemoval);
             document.body.appendChild(RestartButton);
@@ -104,7 +104,7 @@ let GameRemoval = function () { //deleting html elements so GametoView function
     StartButton = document.createElement('button'); //creating temporaty "Start" button
     StartButton.id ="Start";                        //since GametoView function deletes it
     StartButton.innerHTML = "START";
-    StartButton.style = `position: absolute; top: 15vw; left: 40vw; color:brown`
+    StartButton.style = `position: absolute; top: 12vw; left: 40vw; color:brown`
     StartButton.addEventListener("click", GametoView);
     document.body.appendChild(StartButton);
 }
@@ -114,7 +114,7 @@ let GametoView = function() {
     NoteField = document.createElement('p'); //creating correct/wrong notification field
     NoteField.id ="NF";
     NoteField.innerHTML = "";
-    NoteField.style = `position:absolute; left: 28vw; top: 36vw; font-size: 2vw; max-width: 50%;`
+    NoteField.style = `position:absolute; left: 28vw; top: 33vw; font-size: 2vw; max-width: 50%;`
     document.body.appendChild(NoteField);
     word = words[Math.floor(Math.random()*words.length)].split(""); //computer selects random word
     originalWord = word.join(" ");
@@ -140,14 +140,14 @@ let GametoView = function() {
     GuessField.type ="text";
     GuessField.value = "";
     GuessField.maxLength="1"
-    GuessField.style = `position:absolute; left: 42vw; top: 32vw;
+    GuessField.style = `position:absolute; left: 42vw; top: 29vw;
     background-color:white; font-size: 2.3vw; text-align: center; max-width: 4vw`
     document.body.appendChild(GuessField);
 
     SubmitButton = document.createElement('button'); //creating button to submit user's characters
     SubmitButton.id ="SB";
     SubmitButton.innerHTML = "Submit";
-    SubmitButton.style = `position:absolute; left: 46vw; top: 32vw;
+    SubmitButton.style = `position:absolute; left: 46vw; top: 29vw;
      font-size: 2.3vw; text-align: center; max-width: 10vw`
     SubmitButton.addEventListener("click", SubmittoView);
     document.body.appendChild(SubmitButton);
@@ -155,7 +155,7 @@ let GametoView = function() {
     UsedField = document.createElement('p');  //creating field to show used letters
     UsedField.id ="UF";
     UsedField.innerHTML = "Used letters: ";
-    UsedField.style = `position:absolute; left: 2vw; top: 35vw;
+    UsedField.style = `position:absolute; left: 2vw; top: 33vw;
      font-size: 2vw; max-width: 20vw`
     document.body.appendChild(UsedField);
 }
