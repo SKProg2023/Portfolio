@@ -52,7 +52,7 @@ let RocktoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 39vw; font-size: 2vw";
+        reset.style = "position:absolute; left: 60vw; top: 38vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -65,7 +65,7 @@ let RocktoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 39vw; font-size: 2vw";
+        reset.style = "position:absolute; left: 60vw; top: 38vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -103,7 +103,7 @@ let PapertoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 39vw; font-size: 2vw";
+        reset.style = "position:absolute; left: 60vw; top: 38vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -116,7 +116,7 @@ let PapertoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 39vw; font-size: 2vw";
+        reset.style = "position:absolute; left: 60vw; top: 38vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -128,8 +128,7 @@ let ScissorstoView = function() {
     document.getElementById("TopQuestion").src="Images/3-RPS/Scissors.png";
     computer = Math.floor(Math.random()*a.length);
     if (computer == 0) {
-        document.getElementById("BottomQuestion").
-        src="Images/3-Rock.png"; 
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
         document.getElementById("Comment1").innerHTML="Scissors vs Rock";
@@ -155,7 +154,7 @@ let ScissorstoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 39vw; font-size: 2vw";
+        reset.style = "position:absolute; left: 60vw; top: 38vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -168,7 +167,7 @@ let ScissorstoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 39vw; font-size: 2vw";
+        reset.style = "position:absolute; left: 60vw; top: 38vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
