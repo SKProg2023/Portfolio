@@ -6,7 +6,7 @@
     <link href = "Styles/3-Rock-Paper-Scissors-CSS.css" rel="stylesheet"/>
     <script src="Scripts/3-Rock-Paper-Scissors-script.js" defer></script>
   </head>
-  <body>
+  <body style = "overflow: hidden;">
     <header>
       <h1>
          Rock, Paper, Scissors
@@ -14,71 +14,53 @@
     </header>
     <nav></nav>
     <main>
-      <button id="RockButton" style = "position:absolute; left: 430px; top: 120px; font-size: 20px" 
+      <a href = "https://en.wikipedia.org/wiki/Rock_paper_scissors" style = "position:absolute;
+      left: 5%; top: 1%; max-width:10%">
+       <p class = "plink">
+        Link to Rock Paper Scissors rules at wikipedia
+       </p>
+     </a>
+      <button id="RockButton" style = "position:absolute; left: 34vw; top: 10vw; font-size: 1.5vw;
+      max-width: 10%" 
       onclick="RocktoView()">
-        <img src = "Images/3-Rock.png"/>
+        <img  style = "max-width: 100%" src = "Images/3-RPS/Rock.png"/>
         <p>Rock</p>
       </button>
-      <button id="PaperButton" style = "position:absolute; left: 580px; top: 120px; font-size: 20px" 
+      <button id="PaperButton" style = "position:absolute; left: 44vw; top: 10vw; font-size: 1.5vw;
+      max-width: 10%" 
       onclick="PapertoView()">
-        <img src = "Images/3-Paper.png"/>
+        <img style = "max-width: 100%" src = "Images/3-RPS/Paper.png"/>
         <p>Paper</p>
       </button>
-      <button id="ScissorsButton" style = "position:absolute; left: 730px; top: 120px; font-size: 20px" 
+      <button id="ScissorsButton" style = "position:absolute; left: 54vw; top: 10vw; font-size: 1.5vw;
+      max-width: 10%" 
       onclick="ScissorstoView()">
-        <img src = "Images/3-Scissors.png"/>
+        <img style = "max-width: 100%" src = "Images/3-RPS/Scissors.png"/>
         <p>Scissors</p>
       </button>
-      <p style = "position:absolute; left: 390px; top: 310px; font-size: 30px">Your move:</p>
-      <p style = "position:absolute; left: 390px; top: 430px; font-size: 30px">Comp move:</p>
-      <p style = "position:absolute; left: 760px; top: 310px; font-size: 30px">Wins:</p>
-      <p id="Win" style = "position:absolute; left: 920px; top: 310px; font-size: 30px">0</p>
-      <p style = "position:absolute; left: 760px; top: 370px; font-size: 30px">Stalemates:</p>
-      <p id="Stalemate" style = "position:absolute; left: 920px; top: 370px; font-size: 30px">0</p>
-      <p style = "position:absolute; left: 760px; top: 430px; font-size: 30px">Looses:</p>
-      <p id="Loose" style = "position:absolute; left: 920px; top: 430px; font-size: 30px">0</p>
-      <p id="Comment1" style = "position:absolute; left: 600px; top: 530px; font-size: 20px"></p>
-      <p id="Comment2" style = "position:absolute; left: 600px; top: 550px; font-size: 20px"></p>
-      <p id="TheEnd" style = "position:absolute; left: 800px; top: 490px; font-size: 20px"></p>
-      <img id="TopQuestion" src = "Images/3-Question.png"
-        style = "position:absolute; left: 590px; top: 310px; font-size: 20px" />
-      <img id="BottomQuestion" src = "Images/3-Question.png"
-        style = "position:absolute; left: 590px; top: 430px; font-size: 20px" />
+      <p style = "position:absolute; left: 30vw; top: 24vw; font-size: 2.5vw">Your move:</p>
+      <p style = "position:absolute; left: 30vw; top: 34vw; font-size: 2.5vw">Comp move:</p>
+      <p style = "position:absolute; left: 58vw; top: 24vw; font-size: 2.5vw">Wins:</p>
+      <p id="Win" style = "position:absolute; left: 72vw; top: 24vw; font-size: 2.5vw">0</p>
+      <p style = "position:absolute; left: 58vw; top: 29vw; font-size: 2.5vw">Stalemates:</p>
+      <p id="Stalemate" style = "position:absolute; left: 72vw; top: 29vw; font-size: 2.5vw">0</p>
+      <p style = "position:absolute; left: 58vw; top: 34vw; font-size: 2.5vw">Looses:</p>
+      <p id="Loose" style = "position:absolute; left: 72vw; top: 34vw; font-size: 2.5vw">0</p>
+      <p id="Comment1" style = "position:absolute; left: 44vw; top: 41vw; font-size: 2vw"></p>
+      <p id="Comment2" style = "position:absolute; left: 44vw; top: 43vw; font-size: 2vw"></p>
+      <p id="TheEnd" style = "position:absolute; left: 60vw; top: 38vw; font-size: 2vw"></p>
+      <img id="TopQuestion" src = "Images/3-RPS/Question.png"
+        style = "position:absolute; left: 44vw; top: 24vw; max-width: 10%" />
+      <img id="BottomQuestion" src = "Images/3-RPS/Question.png"
+        style = "position:absolute; left: 44vw; top: 34vw; max-width: 10%" />
       <aside>
-        <p class = "Projects">
-          Projects
-        </p>
-        <a href = "index.html" style = "position:absolute; right: 10px; top: 60px;">
+        <a href = "index.html" style = "position:absolute; right: 5%; top: 1%; max-width:10%">
           <p class = "plink">
-            Home page
-	        </p>
-        </a>
-        <a href = "2-Calculator.html" style = "position:absolute; right: 10px; top: 90px;">
-          <p class = "plink">
-            Calculator
-	        </p>
-        </a>
-        <p style = "position:absolute; right: 10px; top: 120px; font-size: 20px">
-          Rock, Paper, Scissors
-	      </p>
-        <a href = "4-Hangman.html" style = "position:absolute; right: 10px; top: 150px;">
-          <p class = "plink">
-            Hangman
-	        </p>
-        </a>
-        <a href = "5-Guess-a-Number.html" style = "position:absolute; right: 10px; top: 180px;">
-          <p class = "plink">
-            Guess a number
-	        </p>
-        </a>
-        <a href = "6-Durak.html" style = "position:absolute; right: 10px; top: 210px;">
-          <p class = "plink">
-            Durak
-	        </p>
+            Back to Landing Page
+          </p>
         </a>
       </aside>
     </main>
     <footer></footer>
   </body>
-
 </html>
