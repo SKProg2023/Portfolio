@@ -6,7 +6,7 @@
     <link href = "Styles/4-Hangman-CSS.css" rel="stylesheet"/>
     <script src="Scripts/4-Hangman-script.js" defer></script>
   </head>
-  <body>
+  <body style = "overflow: hidden;">
     <header>
       <h1>
          Hangman
@@ -14,64 +14,26 @@
     </header>
     <nav></nav>
     <main>
-      <h3>
-        <p style = "position: fixed; top: 40px; left: 10px; color:midnightblue ">Hangman rules:
+      <a href = "https://en.wikipedia.org/wiki/Hangman_(game)" style = "position:absolute;
+       left: 5%; top: 1%; max-width:10%">
+        <p class = "plink">
+          Link to Hangman rules at wikipedia
         </p>
-      </h3>
-      <p style = "position: fixed; top: 70px; left: 10px; color:midnightblue">
-        Computer pickes a random word from preprepared array
-      </p>
-      <p style = "position: fixed; top: 90px; left: 10px; color:midnightblue">
-        and you can try guessing it  by entering letters one
-      </p>
-      <p style = "position: fixed; top: 110px; left: 10px; color:midnightblue">
-        at a time.Game stops if  you  guess  all the letters 
-      </p>
-      <p style = "position: fixed; top: 130px; left: 10px; color:midnightblue">
-        or if you enter wrong letters 7 times.
-      </p>
-      <button id="Start" style = "position: fixed; top: 150px; left: 550px; color:brown"
+      </a>
+      <button id="Start" style = "position: absolute; top: 15vw; left: 40vw; color:brown"
         onclick="GametoView()">
         START
       </button>
-      <img id="Hanging" src="Images/4-Hangman/4-0.png" style = "position: fixed; top: 250px; left: 80px"/>
-     
+      <img id="Hanging" src="Images/4-Hangman/4-0.png" style = "position: absolute; left: 5vw;
+       top: 20vw; max-width:15%"/>
       <aside>
-        <p class = "Projects">
-          Projects
-        </p>
-        <a href = "index.html" style = "position:absolute; right: 10px; top: 60px;">
+        <a href = "index.html" style = "position:absolute; right: 5%; top: 1%; max-width:10%">
           <p class = "plink">
-            Home page
-	        </p>
-        </a>
-        <a href = "2-Calculator.html" style = "position:absolute; right: 10px; top: 90px;"">
-          <p class = "plink">
-            Calculator
-	        </p>
-        </a>
-	      <a href = "3-Rock-Paper-Scissors.html" style = "position:absolute; right: 10px; top: 120px;">
-          <p class = "plink">
-            Rock, Paper, Scissors
-	        </p>
-	      </a>
-          <p style = "position:absolute; right: 10px; top: 150px; font-size: 20px;">
-            Hangman
-	        </p>
-        </a>
-        <a href = "5-Guess-a-Number.html" style = "position:absolute; right: 10px; top: 180px;">
-          <p class = "plink">
-            Guess a number
-	        </p>
-        </a>
-        <a href = "6-Durak.html" style = "position:absolute; right: 10px; top: 210px;">
-          <p class = "plink">
-            Durak
-	        </p>
+            Back to Landing Page
+          </p>
         </a>
       </aside>
     </main>
     <footer></footer>
   </body>
-
 </html>
