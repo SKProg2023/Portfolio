@@ -1,10 +1,9 @@
-/* It is a Rock, Paper, Scissors game. It starts with you selecting one, and computer selects one randomly at the same time.
-Winning a round adds to total win count. Game lasts until 5 wins by you or computer*/
    
 let a = ["Rock", "Paper", "Scissors"];
 let win = 0;
 let loose = 0;
 let stalemate = 0;
+
 let ResettoView = function() {
     win = 0;
     loose = 0;
@@ -19,29 +18,29 @@ let ResettoView = function() {
     document.getElementById("Comment1").innerHTML="";
     document.getElementById("Comment2").innerHTML="";
     document.getElementById("TheEnd").innerHTML="";
-    document.getElementById("TopQuestion").src="Images/3-Question.png";
-    document.getElementById("BottomQuestion").src="Images/3-Question.png";
+    document.getElementById("TopQuestion").src="Images/3-RPS/Question.png";
+    document.getElementById("BottomQuestion").src="Images/3-RPS/Question.png";
 }
 
 let RocktoView = function() {
-    document.getElementById("TopQuestion").src="Images/3-Rock.png";
+    document.getElementById("TopQuestion").src="Images/3-RPS/Rock.png";
     computer = Math.floor(Math.random()*a.length);
     if (computer == 0) {
-        document.getElementById("BottomQuestion").src="Images/3-Rock.png"; 
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
         document.getElementById("Comment1").innerHTML="Rock vs Rock";
         document.getElementById("Comment2").innerHTML="Stalemate";
     }
     if (computer == 1) {
-        document.getElementById("BottomQuestion").src="Images/3-Paper.png";
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
         document.getElementById("Comment1").innerHTML="Rock vs Paper";
         document.getElementById("Comment2").innerHTML="You lost";
     }
     if (computer == 2) {
-        document.getElementById("BottomQuestion").src="Images/3-Scissors.png";
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         win+=1;
         document.getElementById("Win").innerHTML=win;
         document.getElementById("Comment1").innerHTML="Rock vs Scissors";
@@ -53,7 +52,7 @@ let RocktoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 800px; top: 550px; font-size: 20px";
+        reset.style = "position:absolute; left: 60vw; top: 42vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -66,7 +65,7 @@ let RocktoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 800px; top: 550px; font-size: 20px";
+        reset.style = "position:absolute; left: 60vw; top: 42vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -75,24 +74,24 @@ let RocktoView = function() {
     }
 }
 let PapertoView = function() {
-    document.getElementById("TopQuestion").src="Images/3-Paper.png";
+    document.getElementById("TopQuestion").src="Images/3-RPS/Paper.png";
     computer = Math.floor(Math.random()*a.length);
     if (computer == 0) {
-        document.getElementById("BottomQuestion").src="Images/3-Rock.png"; 
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         win+=1;
         document.getElementById("Win").innerHTML=win;
         document.getElementById("Comment1").innerHTML="Paper vs Rock";
         document.getElementById("Comment2").innerHTML="You win";
     }
     if (computer == 1) {
-        document.getElementById("BottomQuestion").src="Images/3-Paper.png";
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
         document.getElementById("Comment1").innerHTML="Paper vs Paper";
         document.getElementById("Comment2").innerHTML="Stalemate";
     }
     if (computer == 2) {
-        document.getElementById("BottomQuestion").src="Images/3-Scissors.png";
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
         document.getElementById("Comment1").innerHTML="Paper vs Scissors";
@@ -104,7 +103,7 @@ let PapertoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 800px; top: 550px; font-size: 20px";
+        reset.style = "position:absolute; left: 60vw; top: 42vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -117,7 +116,7 @@ let PapertoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 800px; top: 550px; font-size: 20px";
+        reset.style = "position:absolute; left: 60vw; top: 42vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -126,7 +125,7 @@ let PapertoView = function() {
     }
 }
 let ScissorstoView = function() {
-    document.getElementById("TopQuestion").src="Images/3-Scissors.png";
+    document.getElementById("TopQuestion").src="Images/3-RPS/Scissors.png";
     computer = Math.floor(Math.random()*a.length);
     if (computer == 0) {
         document.getElementById("BottomQuestion").
@@ -137,14 +136,14 @@ let ScissorstoView = function() {
         document.getElementById("Comment2").innerHTML="You lost";
     }
     if (computer == 1) {
-        document.getElementById("BottomQuestion").src="Images/3-Paper.png";
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         win+=1;
         document.getElementById("Win").innerHTML=win;
         document.getElementById("Comment1").innerHTML="Scissors vs Paper";
         document.getElementById("Comment2").innerHTML="You win";
     }
     if (computer == 2) {
-        document.getElementById("BottomQuestion").src="Images/3-Scissors.png";
+        document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
         document.getElementById("Comment1").innerHTML="Scissors vs Scissors";
@@ -156,7 +155,7 @@ let ScissorstoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 800px; top: 550px; font-size: 20px";
+        reset.style = "position:absolute; left: 60vw; top: 42vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
@@ -169,7 +168,7 @@ let ScissorstoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 800px; top: 550px; font-size: 20px";
+        reset.style = "position:absolute; left: 60vw; top: 42vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
