@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             topPos = 12;
           }
         ltp = document.createElement('img'); // left-top images
-        ltp.src = "Images/5-Calculator/Blanco.png";
+        ltp.src = "Images/2-Calculator/Blanco.png";
         ltp.id = "ltpp"+i;
         ltp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
         max-width:4vw`;
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
     leftPos = 30;
     topPos = 15;
     lop = document.createElement('img'); // left operator image
-    lop.src = "Images/5-Calculator/Blanco.png";
+    lop.src = "Images/2-Calculator/Blanco.png";
     lop.id = "lopp";
     lop.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
     max-width:4vw`;
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             topPos = 27;
           }
         lbp = document.createElement('img'); // left-bottom images
-        lbp.src = "Images/5-Calculator/Blanco.png";
+        lbp.src = "Images/2-Calculator/Blanco.png";
         lbp.id = "lbtp"+i;
         lbp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
         max-width:4vw`;
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
     leftPos = 30;
     topPos = 30;
     lep = document.createElement('img'); //left equal image
-    lep.src = "Images/5-Calculator/Blanco.png";
+    lep.src = "Images/2-Calculator/Blanco.png";
     lep.id = "lepp";
     lep.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
     max-width:4vw`;
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             topPos = 42;
           }
         lrp = document.createElement('img'); //left-result images
-        lrp.src = "Images/5-Calculator/Blanco.png";
+        lrp.src = "Images/2-Calculator/Blanco.png";
         lrp.id = "lrsp"+i;
         lrp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
         max-width:4vw`;
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             topPos = 12;
           }
         rtp = document.createElement('img'); // right-top images
-        rtp.src = "Images/5-Calculator/Blanco.png";
+        rtp.src = "Images/2-Calculator/Blanco.png";
         rtp.id = "rtpp"+i;
         rtp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
         max-width:4vw`;
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
     leftPos = 79;
     topPos = 15;
     rop = document.createElement('img'); // right operator image
-    rop.src = "Images/5-Calculator/Blanco.png";
+    rop.src = "Images/2-Calculator/Blanco.png";
     rop.id = "ropp";
     rop.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
     max-width:4vw`;
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             topPos = 27;
           }
         rbp = document.createElement('img'); // right-bottom images
-        rbp.src = "Images/5-Calculator/Blanco.png";
+        rbp.src = "Images/2-Calculator/Blanco.png";
         rbp.id = "rbtp"+i;
         rbp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
         max-width:4vw`;
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
     leftPos = 79;
     topPos = 30;
     rep = document.createElement('img'); // right equal image
-    rep.src = "Images/5-Calculator/Blanco.png";
+    rep.src = "Images/2-Calculator/Blanco.png";
     rep.id = "repp";
     rep.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
     max-width:4vw`;
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             topPos = 42;
           }
         rrp = document.createElement('img'); // right result images
-        rrp.src = "Images/5-Calculator/Blanco.png";
+        rrp.src = "Images/2-Calculator/Blanco.png";
         rrp.id = "rrsp"+i;
         rrp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
         max-width:4vw`;
@@ -206,22 +206,22 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
 
     if (phase == 0 && side == 0) { //removing current pictures before setting new ones
         for(let i = 1; i < 41; i++) { 
-            document.getElementById("ltpp"+i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById("ltpp"+i).src = "Images/2-Calculator/Blanco.png";
         }  
     }
     if (phase == 1 && side == 0) {
         for(let i = 1; i < 41; i++) { 
-            document.getElementById("lbtp"+i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById("lbtp"+i).src = "Images/2-Calculator/Blanco.png";
         }
     }
     if (phase == 0 && side == 1) {
         for(let i = 1; i < 41; i++) { 
-            document.getElementById("rtpp"+i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById("rtpp"+i).src = "Images/2-Calculator/Blanco.png";
         }
     }
     if (phase == 1 && side == 1) {
         for(let i = 1; i < 41; i++) { 
-            document.getElementById("rbtp"+i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById("rbtp"+i).src = "Images/2-Calculator/Blanco.png";
         }
     }
 
@@ -229,64 +229,64 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
         if (phase == 0 && side == 0) {
             randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
-                document.getElementById("ltpp"+count).src =  `Images/5-Calculator/dot-${randomPic}.png`;
+                document.getElementById("ltpp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
             }
             else if (i == "-") {
-                document.getElementById("ltpp"+count).src =  `Images/5-Calculator/minus-${randomPic}.png`;
+                document.getElementById("ltpp"+count).src =  `Images/2-Calculator/minus-${randomPic}.png`;
             }
             else if (i == "+") {
-                document.getElementById("ltpp"+count).src =  `Images/5-Calculator/plus-${randomPic}.png`;
+                document.getElementById("ltpp"+count).src =  `Images/2-Calculator/plus-${randomPic}.png`;
             }
             else {
-                document.getElementById("ltpp"+count).src =  `Images/5-Calculator/${i}-${randomPic}.png`;
+                document.getElementById("ltpp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
             }
             count++;
         }
         if (phase == 1 && side == 0) {
             randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
-                document.getElementById("lbtp"+count).src =  `Images/5-Calculator/dot-${randomPic}.png`;
+                document.getElementById("lbtp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
             }
             else if (i == "-") {
-                document.getElementById("lbtp"+count).src =  `Images/5-Calculator/minus-${randomPic}.png`;
+                document.getElementById("lbtp"+count).src =  `Images/2-Calculator/minus-${randomPic}.png`;
             }
             else if (i == "+") {
-                document.getElementById("ltpp"+count).src =  `Images/5-Calculator/plus-${randomPic}.png`;
+                document.getElementById("ltpp"+count).src =  `Images/2-Calculator/plus-${randomPic}.png`;
             }
             else {
-                document.getElementById("lbtp"+count).src =  `Images/5-Calculator/${i}-${randomPic}.png`;
+                document.getElementById("lbtp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
             }
             count++;
         }
         if (phase == 0 && side == 1) {
             randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
-                document.getElementById("rtpp"+count).src =  `Images/5-Calculator/dot-${randomPic}.png`;
+                document.getElementById("rtpp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
             }
             else if (i == "-") {
-                document.getElementById("rtpp"+count).src =  `Images/5-Calculator/minus-${randomPic}.png`;
+                document.getElementById("rtpp"+count).src =  `Images/2-Calculator/minus-${randomPic}.png`;
             }
             else if (i == "+") {
-                document.getElementById("rtpp"+count).src =  `Images/5-Calculator/plus-${randomPic}.png`;
+                document.getElementById("rtpp"+count).src =  `Images/2-Calculator/plus-${randomPic}.png`;
             }
             else {
-                document.getElementById("rtpp"+count).src =  `Images/5-Calculator/${i}-${randomPic}.png`;
+                document.getElementById("rtpp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
             }
             count++;
         }
         if (phase == 1 && side == 1) {
             randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
-                document.getElementById("rbtp"+count).src =  `Images/5-Calculator/dot-${randomPic}.png`;
+                document.getElementById("rbtp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
             }
             else if (i == "-") {
-                document.getElementById("rbtp"+count).src =  `Images/5-Calculator/minus-${randomPic}.png`;
+                document.getElementById("rbtp"+count).src =  `Images/2-Calculator/minus-${randomPic}.png`;
             }
             else if (i == "+") {
-                document.getElementById("rtpp"+count).src =  `Images/5-Calculator/plus-${randomPic}.png`;
+                document.getElementById("rtpp"+count).src =  `Images/2-Calculator/plus-${randomPic}.png`;
             }
             else {
-                document.getElementById("rbtp"+count).src =  `Images/5-Calculator/${i}-${randomPic}.png`;
+                document.getElementById("rbtp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
             }
             count++;
         }   
@@ -314,10 +314,10 @@ let SquareToView = function() { //squaring "View"
     document.getElementById("bf").textContent = buffer;
     randomPic = Math.floor(Math.random()*5 + 1);
     if (side == 0) {
-        document.getElementById("lopp").src = `Images/5-Calculator/square-${randomPic}.png`;
+        document.getElementById("lopp").src = `Images/2-Calculator/square-${randomPic}.png`;
     }
     if (side == 1) {
-        document.getElementById("ropp").src = `Images/5-Calculator/square-${randomPic}.png`;
+        document.getElementById("ropp").src = `Images/2-Calculator/square-${randomPic}.png`;
     }
     EqualToView();
 }
@@ -328,10 +328,10 @@ let RootToView = function() { // root of "View"
     document.getElementById("bf").textContent = buffer;
     randomPic = Math.floor(Math.random()*5 + 1);
     if (side == 0) {
-        document.getElementById("lopp").src = `Images/5-Calculator/root-${randomPic}.png`;
+        document.getElementById("lopp").src = `Images/2-Calculator/root-${randomPic}.png`;
     }
     if (side == 1) {
-        document.getElementById("ropp").src = `Images/5-Calculator/root-${randomPic}.png`;
+        document.getElementById("ropp").src = `Images/2-Calculator/root-${randomPic}.png`;
     }
     EqualToView();
 }
@@ -345,17 +345,17 @@ let ResetToView = function() { //Resetting View
     phase = 0;
     side = 0;
     for(let i = 1; i < 41; i++) { 
-        document.getElementById("ltpp"+i).src = "Images/5-Calculator/Blanco.png";
-        document.getElementById("lbtp"+i).src = "Images/5-Calculator/Blanco.png";
-        document.getElementById("rtpp"+i).src = "Images/5-Calculator/Blanco.png";
-        document.getElementById("rbtp"+i).src = "Images/5-Calculator/Blanco.png";
-        document.getElementById("rrsp"+i).src = "Images/5-Calculator/Blanco.png";
-        document.getElementById("lrsp"+i).src = "Images/5-Calculator/Blanco.png";
+        document.getElementById("ltpp"+i).src = "Images/2-Calculator/Blanco.png";
+        document.getElementById("lbtp"+i).src = "Images/2-Calculator/Blanco.png";
+        document.getElementById("rtpp"+i).src = "Images/2-Calculator/Blanco.png";
+        document.getElementById("rbtp"+i).src = "Images/2-Calculator/Blanco.png";
+        document.getElementById("rrsp"+i).src = "Images/2-Calculator/Blanco.png";
+        document.getElementById("lrsp"+i).src = "Images/2-Calculator/Blanco.png";
     }  
-    document.getElementById("lopp").src = "Images/5-Calculator/Blanco.png";
-    document.getElementById("lepp").src = "Images/5-Calculator/Blanco.png";
-    document.getElementById("repp").src = "Images/5-Calculator/Blanco.png";
-    document.getElementById("ropp").src = "Images/5-Calculator/Blanco.png";
+    document.getElementById("lopp").src = "Images/2-Calculator/Blanco.png";
+    document.getElementById("lepp").src = "Images/2-Calculator/Blanco.png";
+    document.getElementById("repp").src = "Images/2-Calculator/Blanco.png";
+    document.getElementById("ropp").src = "Images/2-Calculator/Blanco.png";
    
 }
 let OneToView = function() { // Adding "1" to View
@@ -791,10 +791,10 @@ let PlusToView = function() { // adding "+" to Buffer
     operator_equal++;
     randomPic = Math.floor(Math.random()*5 + 1);
     if (side == 0) {
-        document.getElementById("lopp").src = `Images/5-Calculator/plus-${randomPic}.png`;
+        document.getElementById("lopp").src = `Images/2-Calculator/plus-${randomPic}.png`;
     }
     if (side == 1) {
-        document.getElementById("ropp").src = `Images/5-Calculator/plus-${randomPic}.png`;
+        document.getElementById("ropp").src = `Images/2-Calculator/plus-${randomPic}.png`;
     }
 
     phase = 1;
@@ -818,10 +818,10 @@ let MinusToView = function() { // adding "-" to Buffer
     operator_equal++;
     randomPic = Math.floor(Math.random()*5 + 1);
     if (side == 0) {
-        document.getElementById("lopp").src = `Images/5-Calculator/minus-${randomPic}.png`;
+        document.getElementById("lopp").src = `Images/2-Calculator/minus-${randomPic}.png`;
     }
     if (side == 1) {
-        document.getElementById("ropp").src = `Images/5-Calculator/minus-${randomPic}.png`;
+        document.getElementById("ropp").src = `Images/2-Calculator/minus-${randomPic}.png`;
     }
     phase = 1;
 }
@@ -843,10 +843,10 @@ let MultiplyToView = function() { // adding "*" to Buffer
     operator_equal++;
     randomPic = Math.floor(Math.random()*5 + 1);
     if (side == 0) {
-        document.getElementById("lopp").src = `Images/5-Calculator/multiply-${randomPic}.png`;
+        document.getElementById("lopp").src = `Images/2-Calculator/multiply-${randomPic}.png`;
     }
     if (side == 1) {
-        document.getElementById("ropp").src = `Images/5-Calculator/multiply-${randomPic}.png`;
+        document.getElementById("ropp").src = `Images/2-Calculator/multiply-${randomPic}.png`;
     }
     phase = 1;
 }
@@ -868,10 +868,10 @@ let DivideToView = function() { // adding "/" to Buffer
     operator_equal++;
     randomPic = Math.floor(Math.random()*5 + 1);
     if (side == 0) {
-        document.getElementById("lopp").src = `Images/5-Calculator/divide-${randomPic}.png`;
+        document.getElementById("lopp").src = `Images/2-Calculator/divide-${randomPic}.png`;
     }
     if (side == 1) {
-        document.getElementById("ropp").src = `Images/5-Calculator/divide-${randomPic}.png`;
+        document.getElementById("ropp").src = `Images/2-Calculator/divide-${randomPic}.png`;
     }
     phase = 1;
 }
@@ -890,38 +890,44 @@ let EqualToView = function() { // evaluating the expression
     for (let i of document.getElementById("View").textContent) {
         randomPic = Math.floor(Math.random()*5 + 1);
         if (side == 0) {
-            document.getElementById("lepp").src = `Images/5-Calculator/equal-${randomPic}.png`;
+            document.getElementById("lepp").src = `Images/2-Calculator/equal-${randomPic}.png`;
             for (let l of lrpArray) {
                 if (i == ".") {
-                    document.getElementById("lrsp"+count).src =  `Images/5-Calculator/dot-${randomPic}.png`;
+                    document.getElementById("lrsp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
                 }
                 else if (i == "-") {
-                    document.getElementById("lrsp"+count).src =  `Images/5-Calculator/minus-${randomPic}.png`;
+                    document.getElementById("lrsp"+count).src =  `Images/2-Calculator/minus-${randomPic}.png`;
                 }
                 else if (i == "+") {
-                    document.getElementById("lrsp"+count).src =  `Images/5-Calculator/plus-${randomPic}.png`;
+                    document.getElementById("lrsp"+count).src =  `Images/2-Calculator/plus-${randomPic}.png`;
+                }
+                else if (i == "N" || i == "a") {
+                   return null;
                 }
                 else {
-                    document.getElementById("lrsp"+count).src =  `Images/5-Calculator/${i}-${randomPic}.png`;
+                    document.getElementById("lrsp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
                 }
                 count++;
                 break;
             }
         }
         if (side == 1) {
-            document.getElementById("repp").src = `Images/5-Calculator/equal-${randomPic}.png`;
+            document.getElementById("repp").src = `Images/2-Calculator/equal-${randomPic}.png`;
             for (let l of rrpArray) {
                 if (i == ".") {
-                    document.getElementById("rrsp"+count).src =  `Images/5-Calculator/dot-${randomPic}.png`;
+                    document.getElementById("rrsp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
                 }
                 else if (i == "-") {
-                    document.getElementById("rrsp"+count).src =  `Images/5-Calculator/minus-${randomPic}.png`;
+                    document.getElementById("rrsp"+count).src =  `Images/2-Calculator/minus-${randomPic}.png`;
                 }
                 else if (i == "+") {
-                    document.getElementById("lrsp"+count).src =  `Images/5-Calculator/plus-${randomPic}.png`;
+                    document.getElementById("lrsp"+count).src =  `Images/2-Calculator/plus-${randomPic}.png`;
+                }
+                else if (i == "N" || i == "a") {
+                    return null;
                 }
                 else {
-                    document.getElementById("rrsp"+count).src =  `Images/5-Calculator/${i}-${randomPic}.png`;
+                    document.getElementById("rrsp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
                 }
                 count++;
                 break;
@@ -930,30 +936,30 @@ let EqualToView = function() { // evaluating the expression
     }
     if (side == 0) {
         for (let i of rtpArray) {
-            document.getElementById(i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById(i).src = "Images/2-Calculator/Blanco.png";
         }
         for (let i of rbpArray) {
-            document.getElementById(i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById(i).src = "Images/2-Calculator/Blanco.png";
         }
         for (let i of rrpArray) {
-            document.getElementById(i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById(i).src = "Images/2-Calculator/Blanco.png";
         }
-        document.getElementById("ropp").src = "Images/5-Calculator/Blanco.png";
-        document.getElementById("repp").src = "Images/5-Calculator/Blanco.png";
+        document.getElementById("ropp").src = "Images/2-Calculator/Blanco.png";
+        document.getElementById("repp").src = "Images/2-Calculator/Blanco.png";
         side = 1;
     }
     else {
         for (let i of ltpArray) {
-            document.getElementById(i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById(i).src = "Images/2-Calculator/Blanco.png";
         }
         for (let i of lbpArray) {
-            document.getElementById(i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById(i).src = "Images/2-Calculator/Blanco.png";
         }
         for (let i of lrpArray) {
-            document.getElementById(i).src = "Images/5-Calculator/Blanco.png";
+            document.getElementById(i).src = "Images/2-Calculator/Blanco.png";
         }
-        document.getElementById("lopp").src = "Images/5-Calculator/Blanco.png";
-        document.getElementById("lepp").src = "Images/5-Calculator/Blanco.png";
+        document.getElementById("lopp").src = "Images/2-Calculator/Blanco.png";
+        document.getElementById("lepp").src = "Images/2-Calculator/Blanco.png";
         side = 0;
     }
     phase = 0;
