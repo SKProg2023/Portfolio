@@ -156,7 +156,7 @@ let UpPress =  async function() { //triggers by pressing/clicking/tapping arrow 
     down = 0;
     up = 1;
     while (up === 1) {
-        await new Promise(r => setTimeout(r, 140));
+        await new Promise(r => setTimeout(r, 200));
         exhaust = chain[Object.keys(chain)[Object.keys(chain).length-1]];
         for (let i = 1; i <= Object.keys(chain).length -1 ; i++) {
             chain[Object.keys(chain)[Object.keys(chain).length - i]] =
@@ -263,7 +263,7 @@ let DownPress =  async function() { //triggers by pressing/clicking/tapping arro
     up = 0;
 
     while (down === 1) {
-        await new Promise(r => setTimeout(r, 140));
+        await new Promise(r => setTimeout(r, 200));
         exhaust = chain[Object.keys(chain)[Object.keys(chain).length-1]];
         for (let i = 1; i <= Object.keys(chain).length -1 ; i++) {
             chain[Object.keys(chain)[Object.keys(chain).length - i]] =
@@ -370,7 +370,7 @@ let LeftPress =  async function() { //triggers by pressing/clicking/tapping arro
     down = 0;
     up = 0;
     while (left === 1) {
-        await new Promise(r => setTimeout(r, 140));
+        await new Promise(r => setTimeout(r, 200));
         exhaust = chain[Object.keys(chain)[Object.keys(chain).length - 1]];
         for (let i = 1; i <= Object.keys(chain).length -1 ; i++) {
             chain[Object.keys(chain)[Object.keys(chain).length - i]] =
@@ -481,7 +481,7 @@ let RightPress =  async function() { //triggers by pressing/clicking/tapping arr
     down = 0;
     up = 0;
     while (right === 1) {
-        await new Promise(r => setTimeout(r, 140));
+        await new Promise(r => setTimeout(r, 200));
         exhaust = chain[Object.keys(chain)[Object.keys(chain).length - 1]];
         for (let i = 1; i <= Object.keys(chain).length -1 ; i++) {
             chain[Object.keys(chain)[Object.keys(chain).length - i]] =
