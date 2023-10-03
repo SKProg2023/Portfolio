@@ -26,7 +26,7 @@ document.body.appendChild(ScoreField);
 let NoteField = document.createElement('p'); 
 NoteField.id ="NF";
 NoteField.innerHTML = "Use arrows on keyboard or click/tap onscreen arrows";
-NoteField.style = `position:absolute; left: 50vw; top: 42vw; font-size: 1.4vw; max-width:30%`;
+NoteField.style = `position:absolute; left: 50vw; top: 38vw; font-size: 1.4vw; max-width:30%`;
 document.body.appendChild(NoteField);
 
 let grid = []; // field for placement of the rest elements of the game
@@ -40,103 +40,103 @@ for(let i = 0; i < 400; i++) { //visualization of empty grid
     if (i === 20) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 7;
+        topPos = 6.8;
     }
     else if (i === 40) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 9;
+        topPos = 8.6;
     }
     else if (i === 60) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 11;
+        topPos = 10.4;
     }
     else if (i === 80) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 13;
+        topPos = 12.2;
     }
     else if (i === 100) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 15;
+        topPos = 14;
     }
     else if (i === 120) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 17;
+        topPos = 15.8;
     }
     else if (i === 140) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 19;
+        topPos = 17.6;
     }
     else if (i === 160) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 21;
+        topPos = 19.4;
     }
     else if (i === 180) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 23;
+        topPos = 21.2;
     }
     if (i === 200) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 25;
+        topPos = 23;
     }
     else if (i === 220) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 27;
+        topPos = 24.8;
     }
     else if (i === 240) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 29;
+        topPos = 26.6;
     }
     else if (i === 260) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 31;
+        topPos = 28.4;
     }
     else if (i === 280) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 33;
+        topPos = 30.2;
     }
     else if (i === 300) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 35;
+        topPos = 32;
     }
     else if (i === 320) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 37;
+        topPos = 33.8;
     }
     else if (i === 340) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 39;
+        topPos = 35.6;
     }
     else if (i === 360) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 41;
+        topPos = 37.4;
     }
     else if (i === 380) {
         LeftAndRightBorders.push(i);
         leftPos = 5;
-        topPos = 43;
+        topPos = 39.2;
     }
     t = document.createElement('img');
     t.id = "t"+i;
-    t.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw; max-width:2vw; border:solid; border-width:0.1vw`;
+    t.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw; max-width:1.8vw; border:solid; border-width:0.1vw`;
     t.src = "Images/5-Snake/Empty.png";
-    leftPos += 2;
+    leftPos += 1.8;
     document.body.appendChild(t);
 }   
 LeftAndRightBorders.push("0"); 
