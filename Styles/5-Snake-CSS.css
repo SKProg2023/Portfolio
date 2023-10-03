@@ -1,0 +1,27 @@
+a:link{
+  text-decoration: none;
+}
+body {
+background-color: beige;
+}
+h1 {    
+	color:darkgrey;
+	position: absolute;
+	top: 0.5vw;
+	left: 43vw;
+	color: grey;
+	font-size: 2vw;
+}
+
+
+#Start {
+	position: absolute;
+	left: 43vw;
+	top: 10vw;
+  	font-size: 1.5vw;
+	text-align: center;
+}
+}
+.plink {
+font-size: 1vw;
+}
