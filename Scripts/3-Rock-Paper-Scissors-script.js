@@ -16,7 +16,7 @@ let ResettoView = function() {
     document.getElementById("Stalemate").innerHTML=0;
     document.getElementById("Reset").remove();
     document.getElementById("Comment1").innerHTML="";
-    document.getElementById("Comment2").innerHTML="";
+    //document.getElementById("Comment2").innerHTML="";
     document.getElementById("TheEnd").innerHTML="";
     document.getElementById("TopQuestion").src="Images/3-RPS/Question.png";
     document.getElementById("BottomQuestion").src="Images/3-RPS/Question.png";
@@ -29,22 +29,22 @@ let RocktoView = function() {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
-        document.getElementById("Comment1").innerHTML="Rock vs Rock";
-        document.getElementById("Comment2").innerHTML="Stalemate";
+        document.getElementById("Comment1").innerHTML="Rock vs Rock | Stalemate";
+        //document.getElementById("Comment2").innerHTML="Stalemate";
     }
     if (computer == 1) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
-        document.getElementById("Comment1").innerHTML="Rock vs Paper";
-        document.getElementById("Comment2").innerHTML="You lost";
+        document.getElementById("Comment1").innerHTML="Rock vs Paper | You lost";
+        //document.getElementById("Comment2").innerHTML="You lost";
     }
     if (computer == 2) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         win+=1;
         document.getElementById("Win").innerHTML=win;
-        document.getElementById("Comment1").innerHTML="Rock vs Scissors";
-        document.getElementById("Comment2").innerHTML="You win";
+        document.getElementById("Comment1").innerHTML="Rock vs Scissors | You win";
+        //document.getElementById("Comment2").innerHTML="You win";
     }
     if (win == 5) {
         document.getElementById("TheEnd").innerHTML="YOU WIN!";
@@ -80,22 +80,22 @@ let PapertoView = function() {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         win+=1;
         document.getElementById("Win").innerHTML=win;
-        document.getElementById("Comment1").innerHTML="Paper vs Rock";
-        document.getElementById("Comment2").innerHTML="You win";
+        document.getElementById("Comment1").innerHTML="Paper vs Rock | You win";
+        //document.getElementById("Comment2").innerHTML="You win";
     }
     if (computer == 1) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
-        document.getElementById("Comment1").innerHTML="Paper vs Paper";
-        document.getElementById("Comment2").innerHTML="Stalemate";
+        document.getElementById("Comment1").innerHTML="Paper vs Paper | Stalemate";
+        //document.getElementById("Comment2").innerHTML="Stalemate";
     }
     if (computer == 2) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
-        document.getElementById("Comment1").innerHTML="Paper vs Scissors";
-        document.getElementById("Comment2").innerHTML="You loose";
+        document.getElementById("Comment1").innerHTML="Paper vs Scissors | You loose";
+        //document.getElementById("Comment2").innerHTML="You loose";
     }
     if (win == 5) {
         document.getElementById("TheEnd").innerHTML="YOU WIN!";
@@ -131,22 +131,22 @@ let ScissorstoView = function() {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
-        document.getElementById("Comment1").innerHTML="Scissors vs Rock";
-        document.getElementById("Comment2").innerHTML="You lost";
+        document.getElementById("Comment1").innerHTML="Scissors vs Rock | You lost";
+        //document.getElementById("Comment2").innerHTML="You lost";
     }
     if (computer == 1) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         win+=1;
         document.getElementById("Win").innerHTML=win;
-        document.getElementById("Comment1").innerHTML="Scissors vs Paper";
-        document.getElementById("Comment2").innerHTML="You win";
+        document.getElementById("Comment1").innerHTML="Scissors vs Paper | You win";
+        //document.getElementById("Comment2").innerHTML="You win";
     }
     if (computer == 2) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
-        document.getElementById("Comment1").innerHTML="Scissors vs Scissors";
-        document.getElementById("Comment2").innerHTML="Stalemate";
+        document.getElementById("Comment1").innerHTML="Scissors vs Scissors | Stalemate";
+        //document.getElementById("Comment2").innerHTML="Stalemate";
     }
     if (win == 5) {
         document.getElementById("TheEnd").innerHTML="YOU WIN!";
