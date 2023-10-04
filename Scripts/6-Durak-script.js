@@ -241,8 +241,8 @@ let deal = async function() {
   PassPic = document.createElement("button");
   PassPic.id = `PP`;
   PassPic.innerHTML = "Pass"
-  PassPic.style = `position: absolute; left: 30vw; top: 10vw; max-width: 9vw;
-   font-size: 1.4vw; text-align: center;`
+  PassPic.style = `position: absolute; left: 33vw; top: 15vw; max-width: 10vw;
+   font-size: 1.3vw; text-align: center;`
   PassPic.style.visibility = "hidden";
   PassPic.addEventListener("click", topUp3);
   document.body.appendChild(PassPic);
@@ -250,8 +250,8 @@ let deal = async function() {
   TakePic = document.createElement("button");
   TakePic.id = `TP`;
   TakePic.innerHTML = "Take"
-  TakePic.style = `position: absolute; left: 56vw; top: 10vw; max-width: 9vw;
-   font-size: 1.4vw; text-align: center;`
+  TakePic.style = `position: absolute; left: 33vw; top: 15vw; max-width: 10vw;
+  font-size: 1.3vw; text-align: center;`
   TakePic.style.visibility = "hidden";
   TakePic.addEventListener("click", takeAll);
   document.body.appendChild(TakePic);
