@@ -453,6 +453,7 @@ let clearDesk = function() { //removing logical and visible attacking and defend
 
 let takeAll = async function () { // function for "Take" button. User takes all attacking and 
                                   //defending cards from the desk
+  document.getElementById("TP").style.visibility = "hidden";
   await new Promise(r => setTimeout(r, 800));
   arrangePlayer1();
   arrangePlayer2();
@@ -691,6 +692,7 @@ let topUp2 = async function () { //topping up if computer finishes attack succes
 }
 
 let topUp3 = async function () { //topping up if user fails to defend
+  document.getElementById("PP").style.visibility = "hidden";
   await new Promise(r => setTimeout(r, 800));
   while (Object.keys(player1).length < 6) {
     if (Object.keys(talon).length == 0 
@@ -794,8 +796,6 @@ let topUp3 = async function () { //topping up if user fails to defend
 
     return document.getElementById("NF1").innerHTML = "Computer wins.";
   }
-  document.getElementById("TP").style.visibility = "visible";
-
   player2move(); 
 }
 
@@ -940,6 +940,7 @@ let move = async function (event) { // player1's (user's) move
           document.getElementById("btB" + (i.slice(3, 4) -1)).style.border = "solid";
           document.getElementById(event.target.id).src = "Images/6-Durak/Blanco.png";
           document.getElementById(event.target.id).style.border = "none";
+          document.getElementById("TP").style.visibility = "hidden";
           await new Promise(r => setTimeout(r, 800));
           ind3 = btUparray.indexOf(i); // updating array of cards/spaces on the table
           btBtarray[ind3-1] = leftPicSrcBuffer.slice(-10, ).slice(0, 2);
@@ -958,6 +959,7 @@ let move = async function (event) { // player1's (user's) move
           document.getElementById("btB" + (i.slice(3, 4) -1)).style.border = "solid";
           document.getElementById(event.target.id).src = "Images/6-Durak/Blanco.png";
           document.getElementById(event.target.id).style.border = "none";
+          document.getElementById("TP").style.visibility = "hidden";
           await new Promise(r => setTimeout(r, 800));
           ind3 = btUparray.indexOf(i); // updating array of cards/spaces on the table
           btBtarray[ind3-1] = leftPicSrcBuffer.slice(-10, ).slice(0, 2);
@@ -979,6 +981,7 @@ let move = async function (event) { // player1's (user's) move
 
 let player2move = async function () { // computer's attack logic
   document.getElementById("PP").style.visibility = "hidden";
+  document.getElementById("TP").style.visibility = "hidden";
   document.getElementById("NF1").innerHTML = "Computer's move";
   document.getElementById("NF2").innerHTML = "";
   await new Promise(r => setTimeout(r, 1500));
@@ -1051,12 +1054,12 @@ let player2move = async function () { // computer's attack logic
       document.getElementById("btU" + buEqualizer).src = rightPicSrcBuffer
       document.getElementById("btU" + buEqualizer).style.border = "solid";
       document.getElementById("NF1").innerHTML = "Beat or Take";
+      document.getElementById("TP").style.visibility = "visible";
       await new Promise(r => setTimeout(r, 800));
       btUparray[buEqualizer -1] = rightPicSrcBuffer.slice(-10, ).slice(0, 2);
       delete player2[rightPicSrcBuffer.slice(-13, ).slice( 0,-4)];
       arrangePlayer1();
       arrangePlayer2();
-      document.getElementById("TP").style.visibility = "visible";
       break;
     }
     if (i.startsWith("bt") == true && Object.keys(totalTableCards).length != 0) {
@@ -1084,6 +1087,7 @@ let player2move = async function () { // computer's attack logic
           document.getElementById("btU" + buEqualizer).src = rightPicSrcBuffer
           document.getElementById("btU" + buEqualizer).style.border = "solid";
           document.getElementById("NF1").innerHTML = "Beat or Take";
+          document.getElementById("TP").style.visibility = "visible";
           await new Promise(r => setTimeout(r, 800));
           btUparray[buEqualizer -1] = rightPicSrcBuffer.slice(-10, ).slice(0, 2);
           delete player2[rightPicSrcBuffer.slice(-13, ).slice( 0,-4)];
@@ -1091,7 +1095,6 @@ let player2move = async function () { // computer's attack logic
           arrangePlayer2();
           breakCheck1 = true;
           passCheck1 = false
-          document.getElementById("TP").style.visibility = "visible";
           break;
         }
       }
@@ -1108,6 +1111,7 @@ let player2move = async function () { // computer's attack logic
           document.getElementById("btU" + buEqualizer).src = rightPicSrcBuffer
           document.getElementById("btU" + buEqualizer).style.border = "solid";
           document.getElementById("NF1").innerHTML = "Beat or take";
+          document.getElementById("TP").style.visibility = "visible";
           await new Promise(r => setTimeout(r, 800));
           btUparray[buEqualizer -1] = rightPicSrcBuffer.slice(-10, ).slice(0, 2);
           delete player2[rightPicSrcBuffer.slice(-13, ).slice( 0,-4)];
@@ -1115,7 +1119,6 @@ let player2move = async function () { // computer's attack logic
           arrangePlayer2();
           breakCheck1 = true;
           passCheck1 = false;
-          document.getElementById("TP").style.visibility = "visible";
           break;
           }
         } 
