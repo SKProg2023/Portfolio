@@ -55,19 +55,20 @@ let a, b, c; // rules for placing a card on the table
 let leftPicSrcBuffer, rightPicSrcBuffer; // var to keep original left and right cards picture source
 let rightPicCounter; // counter to referense right card pictures;
 let moveTracking; // var for keeping track of whos move it is at this moment
+let VisibleOrHidden; // var to check if computer's cards are visible or hidden
 
 let GametoView = function () {
   document.getElementById("Start").remove(); //removing start button
 
   NoteField1 = document.createElement('p'); //creating top notification field
   NoteField1.id ="NF1";
-  NoteField1.innerHTML = "Shuffle the deck";
+  NoteField1.innerHTML = "Choose to see or to hide";
   NoteField1.style = `position:absolute; left: 25vw; top: 35vw; font-size: 2vw; max-width:50%`;
   document.body.appendChild(NoteField1);
 
   NoteField2 = document.createElement('p'); //creating bottom notification field
   NoteField2.id ="NF2";
-  NoteField2.innerHTML = "or Deal for two";
+  NoteField2.innerHTML = "computer's cards";
   NoteField2.style = `position:absolute; left: 25vw; top: 37vw; font-size: 2vw; max-width:50%`;
   document.body.appendChild(NoteField2);
 
@@ -77,21 +78,21 @@ let GametoView = function () {
   mainDeck.style = `position: absolute; left: 43vw; top: 7vw; border: solid;  max-width:8vw`
   document.body.appendChild(mainDeck);
 
-  ShuffleButton = document.createElement("button"); // creating a button to shuffle the deck
-  ShuffleButton.id = "SB";
-  ShuffleButton.innerHTML = "Shuffle";
-  ShuffleButton.style = `position: absolute; left: 35vw; top: 10vw; max-width: 8vw;
-  font-size: 1.5vw; text-align: center;`;
-  ShuffleButton.addEventListener("click", shuffle);
-  document.body.appendChild(ShuffleButton);
+  visibleButton = document.createElement("button"); //makes computer cards visible
+  visibleButton.id = "vB";
+  visibleButton.innerHTML = "Deal. Computer's cards are visible.";
+  visibleButton.style = `position: absolute; left: 33vw; top: 8vw; max-width: 9vw;
+  font-size: 1.4vw; text-align: center;`;
+  visibleButton.addEventListener("click", shuffleVisible);
+  document.body.appendChild(visibleButton);
 
-  DealButton = document.createElement("button"); //creating a button to deal the cards for two players
-  DealButton.id = "DB";
-  DealButton.innerHTML = "Deal";
-  DealButton.style = `position: absolute; left: 55vw; top: 10vw; max-width: 8vw;
-  font-size: 1.5vw; text-align: center;`;
-  DealButton.addEventListener("click", deal);
-  document.body.appendChild(DealButton);
+  hiddenButton = document.createElement("button"); ////makes computer cards hidden
+  hiddenButton.id = "hB";
+  hiddenButton.innerHTML = "Deal. Computer's cards are hidden.";
+  hiddenButton.style = `position: absolute; left: 52vw; top: 8vw; max-width: 9vw;
+  font-size: 1.4vw; text-align: center;`;
+  hiddenButton.addEventListener("click", shuffleHidden);
+  document.body.appendChild(hiddenButton);
 
   for(let i = 1; i < 37; i++) { // creating future placements of user's cards
     if (i === 13) {
@@ -166,6 +167,34 @@ let GametoView = function () {
   }
 }
 
+let shuffleVisible = async function() { //randomly re-ordering main deck
+  await new Promise(r => setTimeout(r, 800));
+  while (Object.keys(talon).length != 0) {
+    i = Object.keys(talon)[Math.floor(Math.random()*Object.keys(talon).length)];
+    console.log("i = " + i);
+    shuffledDeck[i] = talon[i];
+    delete talon[i];    
+    }
+  talon = shuffledDeck;
+  shuffledDeck = {};
+  VisibleOrHidden = 1;
+  deal();
+}
+
+let shuffleHidden = async function() { //randomly re-ordering main deck
+  await new Promise(r => setTimeout(r, 800));
+  while (Object.keys(talon).length != 0) {
+    i = Object.keys(talon)[Math.floor(Math.random()*Object.keys(talon).length)];
+    console.log("i = " + i);
+    shuffledDeck[i] = talon[i];
+    delete talon[i];    
+    }
+  talon = shuffledDeck;
+  shuffledDeck = {};
+  VisibleOrHidden = 0;
+  deal();
+}
+
 let deal = async function() {
   while (Object.keys(player1).length < 6) { //creating user's and computer's logical hands
     p1 = Object.keys(talon)[0];
@@ -187,8 +216,10 @@ let deal = async function() {
   for (let l of Object.keys(player2)) { //creating computer's visible hand
     document.getElementById("rp"+picNumber).src = `Images/6-Durak/${l}.png`;
     document.getElementById("rp"+picNumber).style.border="solid";
-    document.getElementById("rpH"+picNumber).src = `Images/6-Durak/Hidden.png`;
-    document.getElementById("rpH"+picNumber).style.border="solid";
+    if (VisibleOrHidden === 0) {
+      document.getElementById("rpH"+picNumber).src = `Images/6-Durak/Hidden.png`;
+      document.getElementById("rpH"+picNumber).style.border="solid";
+    }
     picNumber++;
   }
   picNumber = 1;
@@ -204,23 +235,23 @@ let deal = async function() {
   document.getElementById("mD").style =`position: absolute; left: 43vw; top: 7vw;
   border: solid; transform: rotate(90deg); max-width:8vw`; //repositioning image of main deck
   document.body.appendChild(mainDeck);
-  document.getElementById("SB").remove();
-  document.getElementById("DB").remove();
+  document.getElementById("vB").remove();
+  document.getElementById("hB").remove();
 
-  PassPic = document.createElement("img");
-  PassPic.src = `Images/6-Durak/PASS.png`;
+  PassPic = document.createElement("button");
   PassPic.id = `PP`;
-  PassPic.style = `position: absolute; left: 30vw; top: 10vw; max-width: 8vw;
-   border-style: inset; border: solid;`;
+  PassPic.innerHTML = "Pass"
+  PassPic.style = `position: absolute; left: 30vw; top: 10vw; max-width: 9vw;
+   font-size: 1.4vw; text-align: center;`
   PassPic.style.visibility = "hidden";
   PassPic.addEventListener("click", topUp3);
   document.body.appendChild(PassPic);
 
-  TakePic = document.createElement("img");
-  TakePic.src = `Images/6-Durak/TAKE.png`;
+  TakePic = document.createElement("button");
   TakePic.id = `TP`;
-  TakePic.style = `position: absolute; left: 56vw; top: 10vw; max-width: 8vw;
-  border-style: inset; border: solid;`;
+  TakePic.innerHTML = "Take"
+  TakePic.style = `position: absolute; left: 56vw; top: 10vw; max-width: 9vw;
+   font-size: 1.4vw; text-align: center;`
   TakePic.style.visibility = "hidden";
   TakePic.addEventListener("click", takeAll);
   document.body.appendChild(TakePic);
@@ -244,8 +275,8 @@ let deal = async function() {
     document.getElementById("NF1").innerHTML = "You have lowest ranking trump card";
     document.getElementById("NF2").innerHTML = "Your move";
     await new Promise(r => setTimeout(r, 2000));
-    document.getElementById("NF1").innerHTML = "";
-    document.getElementById("NF2").innerHTML = "";
+    document.getElementById("NF1").innerHTML = "Attack or Pass";
+      document.getElementById("NF2").innerHTML = "";
     moveTracking = 0;
     document.getElementById("TP").style.visibility = "hidden";
     document.getElementById("PP").style.visibility = "visible";
@@ -277,7 +308,7 @@ let deal = async function() {
       document.getElementById("NF1").innerHTML = "You have lowest ranking card";
       document.getElementById("NF2").innerHTML = "Your move";
       await new Promise(r => setTimeout(r, 2000));
-      document.getElementById("NF1").innerHTML = "";
+      document.getElementById("NF1").innerHTML = "Attack or Pass";
       document.getElementById("NF2").innerHTML = "";
       moveTracking = 0;
       document.getElementById("TP").style.visibility = "hidden";
@@ -301,7 +332,7 @@ let deal = async function() {
         document.getElementById("NF1").innerHTML = "No trumps dealt and lowest cards are the same";
         document.getElementById("NF2").innerHTML = "Random rolls your move";
         await new Promise(r => setTimeout(r, 2000));
-        document.getElementById("NF1").innerHTML = "";
+        document.getElementById("NF1").innerHTML = "Attack or Pass";
         document.getElementById("NF2").innerHTML = "";
         moveTracking = 0;
         document.getElementById("TP").style.visibility = "hidden";
@@ -372,27 +403,12 @@ let arrangePlayer2 = function () { //re-arranging computer's logical and visible
   for (let i of Object.keys(player2)) {
     document.getElementById("rp"+picNumber).src = `Images/6-Durak/${i}.png`;
     document.getElementById("rp"+picNumber).style.border="solid";
-    document.getElementById("rpH"+picNumber).src = `Images/6-Durak/Hidden.png`;
-    document.getElementById("rpH"+picNumber).style.border="solid";
+    if (VisibleOrHidden === 0) {
+      document.getElementById("rpH"+picNumber).src = `Images/6-Durak/Hidden.png`;
+      document.getElementById("rpH"+picNumber).style.border="solid";
+    }
     picNumber++;
   }
-}
-
-let shuffle = async function() { //randomly re-ordering main deck
-  document.getElementById("NF1").innerHTML = "The deck was Shuffled";
-  document.getElementById("NF2").innerHTML = "";
-  await new Promise(r => setTimeout(r, 800));
-  document.getElementById("NF1").innerHTML = "Shuffle the deck";
-  document.getElementById("NF2").innerHTML = "or Deal for two";
-  while (Object.keys(talon).length != 0) {
-    i = Object.keys(talon)[Math.floor(Math.random()*Object.keys(talon).length)];
-    console.log("i = " + i);
-    shuffledDeck[i] = talon[i];
-    delete talon[i];    
-    }
-  talon = shuffledDeck;
-  shuffledDeck = {};
-  return talon;
 }
 
 let trumpSetting = function () { //increasing value of trump cards
@@ -563,6 +579,7 @@ let topUp1 = async function () { //topping up if computer fails to defend
     document.body.appendChild(RestartButton);
     return document.getElementById("NF1").innerHTML = "Computer wins";
   }
+  document.getElementById("NF1").innerHTML = "Attack or pass";
 }
 
 let topUp2 = async function () { //topping up if computer finishes attack successfully
@@ -670,6 +687,7 @@ let topUp2 = async function () { //topping up if computer finishes attack succes
 
     return document.getElementById("NF1").innerHTML = "Computer win";
   }
+  document.getElementById("NF1").innerHTML = "Attack or Pass";
 }
 
 let topUp3 = async function () { //topping up if user fails to defend
@@ -1032,6 +1050,7 @@ let player2move = async function () { // computer's attack logic
       document.getElementById("rp"+currentPlayer2Pic).style.border = "none";
       document.getElementById("btU" + buEqualizer).src = rightPicSrcBuffer
       document.getElementById("btU" + buEqualizer).style.border = "solid";
+      document.getElementById("NF1").innerHTML = "Beat or Take";
       await new Promise(r => setTimeout(r, 800));
       btUparray[buEqualizer -1] = rightPicSrcBuffer.slice(-10, ).slice(0, 2);
       delete player2[rightPicSrcBuffer.slice(-13, ).slice( 0,-4)];
@@ -1064,6 +1083,7 @@ let player2move = async function () { // computer's attack logic
           document.getElementById("rp"+(counter)).style.border = "none";
           document.getElementById("btU" + buEqualizer).src = rightPicSrcBuffer
           document.getElementById("btU" + buEqualizer).style.border = "solid";
+          document.getElementById("NF1").innerHTML = "Beat or Take";
           await new Promise(r => setTimeout(r, 800));
           btUparray[buEqualizer -1] = rightPicSrcBuffer.slice(-10, ).slice(0, 2);
           delete player2[rightPicSrcBuffer.slice(-13, ).slice( 0,-4)];
@@ -1087,6 +1107,7 @@ let player2move = async function () { // computer's attack logic
           document.getElementById("rp"+(tracker)).style.border = "none";
           document.getElementById("btU" + buEqualizer).src = rightPicSrcBuffer
           document.getElementById("btU" + buEqualizer).style.border = "solid";
+          document.getElementById("NF1").innerHTML = "Beat or take";
           await new Promise(r => setTimeout(r, 800));
           btUparray[buEqualizer -1] = rightPicSrcBuffer.slice(-10, ).slice(0, 2);
           delete player2[rightPicSrcBuffer.slice(-13, ).slice( 0,-4)];
