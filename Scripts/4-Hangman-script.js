@@ -13,14 +13,18 @@ let originalWord = ""; //variable to keep originally picked word
 let tries = 0; //variable to count tries, max = 7
 let guess = ""; //variable for accepting user's input
 let leftpos = 30; //corrdinates for buttons and such
-let toppos = 23;  //corrdinates for buttons and such
+let toppos = 16;  //corrdinates for buttons and such
+let leftPos, topPos;
 let lettersPlace = 0; //
 let PicOrder = 0; // variable to change Hanging picrute
 let UFcheck = []; // variable to collect used letters for Used Letters field
 const guessMatch = /[A-Za-z]/; //creating regex to check for inproper user's input
 
-let SubmittoView = function () {
-    let guess = GuessField.value.toLowerCase(); //creating variable to accept user's input
+let abc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
+           "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+let SubmittoView = function (num) {
+    let guess = num;
     if (UFcheck.includes(" " + guess)) {
         NoteField.innerHTML = `Letter '${guess}' was already used`;
     }
@@ -36,18 +40,16 @@ let SubmittoView = function () {
         }
         UFcheck.push(" " + guess);
         document.getElementById("UF").innerHTML = "Used letters: " + UFcheck.sort();
-        document.getElementById("GF").value = "";
         NoteField.innerHTML = `Correct. The word includes letter '${guess}'`;
         if (!(new_word.includes("-"))) {
             NoteField.innerHTML =`You won. The word is: '${originalWord}'`;
-            document.getElementById("GF").value = "";
-            GuessField.readOnly = true;
-            document.getElementById("SB").remove();
-
+            for (let i of abc) {
+                document.getElementById("abcID" + i).remove();
+            }
             RestartButton = document.createElement('button'); //creating 'Restart' button
             RestartButton.id ="RB";
             RestartButton.innerHTML = "Start over";
-            RestartButton.style = `position:absolute; left: 45vw; top: 29vw;
+            RestartButton.style = `position:absolute; left: 43vw; top: 35vw;
             font-size: 2.3vw; text-align: center; max-width: 15vw`
             RestartButton.addEventListener("click", GameRemoval);
             document.body.appendChild(RestartButton);
@@ -59,21 +61,20 @@ let SubmittoView = function () {
             NoteField.innerHTML = `You are out of tries. Hanged! The word was: '${originalWord}'`;
             PicOrder+=1;
             document.getElementById("Hanging").src = `Images/4-Hangman/4-${PicOrder}.png`;
-            document.getElementById("GF").value = "";
-            GuessField.readOnly = true;
-            document.getElementById("SB").remove();
+            for (let i of abc) {
+                document.getElementById("abcID" + i).remove();
+            }
 
             RestartButton = document.createElement('button'); //creating 'Restart' button
             RestartButton.id ="RB";
             RestartButton.innerHTML = "Start over";
-            RestartButton.style = `position:absolute; left: 45vw; top: 29vw;
+            RestartButton.style = `position:absolute; left: 43vw; top: 35vw;
             font-size: 2.3vw; text-align: center; max-width: 15vw`
             RestartButton.addEventListener("click", GameRemoval);
             document.body.appendChild(RestartButton);
         }
         else {
             NoteField.innerHTML = "Your guess is wrong. Try again.";
-            document.getElementById("GF").value = "";
             PicOrder+=1;
             document.getElementById("Hanging").src = `Images/4-Hangman/4-${PicOrder}.png`;
             UFcheck.push(" " + guess);
@@ -92,7 +93,6 @@ let GameRemoval = function () { //deleting html elements so GametoView function
     document.getElementById("Hanging").src = `Images/4-Hangman/4-0.png`
     document.getElementById("RB").remove();
     document.getElementById("NF").remove();
-    document.getElementById("GF").remove();
     word = "";
     new_word = [];
     tries = 0;
@@ -114,7 +114,7 @@ let GametoView = function() {
     NoteField = document.createElement('p'); //creating correct/wrong notification field
     NoteField.id ="NF";
     NoteField.innerHTML = "";
-    NoteField.style = `position:absolute; left: 28vw; top: 33vw; font-size: 2vw; max-width: 50%;`
+    NoteField.style = `position:absolute; left: 30vw; top: 19vw; font-size: 2vw; max-width: 50%;`
     document.body.appendChild(NoteField);
     word = words[Math.floor(Math.random()*words.length)].split(""); //computer selects random word
     originalWord = word.join(" ");
@@ -122,7 +122,7 @@ let GametoView = function() {
     for (let l of word){
         new_word.push("-") //creating empty word to fill with characters later
     }
-    for (let i of word){
+    for (let i of word){ 
         letters = document.createElement('input'); //creating readonly field that will show correctly
         letters.type ="text";                      //guessed characters
         letters.id ="lettersId" + lettersPlace;
@@ -134,23 +134,29 @@ let GametoView = function() {
         letters.readOnly = true;
         document.body.appendChild(letters);
     }
-    GuessField = document.createElement('input'); //creating field to input user's characters
-    GuessField.id ="GF";
-    GuessField.maxlength="1"
-    GuessField.type ="text";
-    GuessField.value = "";
-    GuessField.maxLength="1"
-    GuessField.style = `position:absolute; left: 42vw; top: 29vw;
-    background-color:white; font-size: 2.3vw; text-align: center; max-width: 4vw`
-    document.body.appendChild(GuessField);
 
-    SubmitButton = document.createElement('button'); //creating button to submit user's characters
-    SubmitButton.id ="SB";
-    SubmitButton.innerHTML = "Submit";
-    SubmitButton.style = `position:absolute; left: 46vw; top: 29vw;
-     font-size: 2.3vw; text-align: center; max-width: 10vw`
-    SubmitButton.addEventListener("click", SubmittoView);
-    document.body.appendChild(SubmitButton);
+    leftPos = 30; //creating virtual keyboard
+    topPos = 26;   
+    for (let i of abc) {
+        if (i === "j") {
+            topPos+=5;
+            leftPos=30;
+        }
+        else if (i === "s") {
+            topPos+=5;
+            leftPos=30;
+        }
+    abcButton = document.createElement('button'); //creating button to submit user's characters
+    abcButton.id ="abcID" + i;
+    abcButton.innerHTML = i;
+    abcButton.style = `position:absolute; left: ${leftPos}vw; top: ${topPos}vw;
+     font-size: 3vw; text-align: center; width: 4vw;`
+    abcButton.addEventListener("click", function () {
+        SubmittoView(i);
+    });
+    document.body.appendChild(abcButton);
+    leftPos+=5;
+    }
 
     UsedField = document.createElement('p');  //creating field to show used letters
     UsedField.id ="UF";
