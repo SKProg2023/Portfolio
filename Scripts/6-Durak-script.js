@@ -81,16 +81,16 @@ let GametoView = function () {
   visibleButton = document.createElement("button"); //makes computer cards visible
   visibleButton.id = "vB";
   visibleButton.innerHTML = "Deal. Computer's cards are visible.";
-  visibleButton.style = `position: absolute; left: 33vw; top: 8vw; max-width: 9vw;
-  font-size: 1.4vw; text-align: center;`;
+  visibleButton.style = `position: absolute; left: 30vw; top: 8vw; max-width: 10vw;
+  font-size: 1.3vw; text-align: center;`;
   visibleButton.addEventListener("click", shuffleVisible);
   document.body.appendChild(visibleButton);
 
   hiddenButton = document.createElement("button"); ////makes computer cards hidden
   hiddenButton.id = "hB";
   hiddenButton.innerHTML = "Deal. Computer's cards are hidden.";
-  hiddenButton.style = `position: absolute; left: 52vw; top: 8vw; max-width: 9vw;
-  font-size: 1.4vw; text-align: center;`;
+  hiddenButton.style = `position: absolute; left: 55vw; top: 8vw; max-width: 10vw;
+  font-size: 1.3vw; text-align: center;`;
   hiddenButton.addEventListener("click", shuffleHidden);
   document.body.appendChild(hiddenButton);
 
