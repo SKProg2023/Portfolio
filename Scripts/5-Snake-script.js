@@ -650,6 +650,7 @@ let rabbitSpawn = function() { // placement of rabbit on the grid
         document.getElementById("t"+rabbit).src.slice(-40, ) === "Images/5-Snake/Turn-RightDown-UpLeft.png" ||
         document.getElementById("t"+rabbit).src.slice(-40, ) === "Images/5-Snake/Turn-RightUp-DownLeft.png" ||
         rabbit === exhaust ||
+        rabbit === 400 ||
         document.getElementById("t"+rabbit).src.slice(-22, ) === "Images/5-Snake/Mud.png") {
         return rabbitSpawn();
     }
