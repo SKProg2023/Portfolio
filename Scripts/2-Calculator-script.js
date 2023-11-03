@@ -1,3 +1,4 @@
+"use strict"
 let buffer = 0; // collects all information from user's input
 let operator = 1; //checks if operator was pressed
 let operator_equal = 1; //checks if 'equal' was pressed
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             leftPos = 3;
             topPos = 12;
           }
-        ltp = document.createElement('img'); // left-top images
+        let ltp = document.createElement('img'); // left-top images
         ltp.src = "Images/2-Calculator/Blanco.png";
         ltp.id = "ltpp"+i;
         ltp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -39,9 +40,10 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
         document.body.appendChild(ltp);
         ltpArray.push(ltp.id);
     }
+
     leftPos = 30;
     topPos = 15;
-    lop = document.createElement('img'); // left operator image
+    let lop = document.createElement('img'); // left operator image
     lop.src = "Images/2-Calculator/Blanco.png";
     lop.id = "lopp";
     lop.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             leftPos = 3;
             topPos = 27;
           }
-        lbp = document.createElement('img'); // left-bottom images
+        let lbp = document.createElement('img'); // left-bottom images
         lbp.src = "Images/2-Calculator/Blanco.png";
         lbp.id = "lbtp"+i;
         lbp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -75,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
 
     leftPos = 30;
     topPos = 30;
-    lep = document.createElement('img'); //left equal image
+    let lep = document.createElement('img'); //left equal image
     lep.src = "Images/2-Calculator/Blanco.png";
     lep.id = "lepp";
     lep.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -97,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             leftPos = 3;
             topPos = 42;
           }
-        lrp = document.createElement('img'); //left-result images
+        let lrp = document.createElement('img'); //left-result images
         lrp.src = "Images/2-Calculator/Blanco.png";
         lrp.id = "lrsp"+i;
         lrp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -106,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
         document.body.appendChild(lrp);
         lrpArray.push(lrp.id);
     }
+
 //-----------------------------RIGHT SIDE
     leftPos = 52;
     topPos = 3;
@@ -122,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             leftPos = 52;
             topPos = 12;
           }
-        rtp = document.createElement('img'); // right-top images
+        let rtp = document.createElement('img'); // right-top images
         rtp.src = "Images/2-Calculator/Blanco.png";
         rtp.id = "rtpp"+i;
         rtp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -134,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
 
     leftPos = 79;
     topPos = 15;
-    rop = document.createElement('img'); // right operator image
+    let rop = document.createElement('img'); // right operator image
     rop.src = "Images/2-Calculator/Blanco.png";
     rop.id = "ropp";
     rop.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -156,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             leftPos = 52;
             topPos = 27;
           }
-        rbp = document.createElement('img'); // right-bottom images
+        let rbp = document.createElement('img'); // right-bottom images
         rbp.src = "Images/2-Calculator/Blanco.png";
         rbp.id = "rbtp"+i;
         rbp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -168,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
 
     leftPos = 79;
     topPos = 30;
-    rep = document.createElement('img'); // right equal image
+    let rep = document.createElement('img'); // right equal image
     rep.src = "Images/2-Calculator/Blanco.png";
     rep.id = "repp";
     rep.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -190,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
             leftPos = 52;
             topPos = 42;
           }
-        rrp = document.createElement('img'); // right result images
+        let rrp = document.createElement('img'); // right result images
         rrp.src = "Images/2-Calculator/Blanco.png";
         rrp.id = "rrsp"+i;
         rrp.style = `position: absolute; left: ${leftPos}vw; top: ${topPos}vw;
@@ -202,8 +205,7 @@ document.addEventListener("DOMContentLoaded", function(){ //creating placeholder
 });
 
 let randomNumbers = function () { //removing and adding pictures of digits and numbers
-    count = 1;
-
+    let count = 1;
     if (phase == 0 && side == 0) { //removing current pictures before setting new ones
         for(let i = 1; i < 41; i++) { 
             document.getElementById("ltpp"+i).src = "Images/2-Calculator/Blanco.png";
@@ -226,7 +228,7 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
     }
 
     for (let i of document.getElementById("View").textContent) { // filling in placeholders with pictures
-        if (phase == 0 && side == 0) {
+        if (phase === 0 && side === 0) {
             randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
                 document.getElementById("ltpp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
@@ -289,6 +291,7 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
                 document.getElementById("rbtp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
             }
             count++;
+
         }   
     } 
 }
@@ -321,6 +324,7 @@ let SquareToView = function() { //squaring "View"
     }
     EqualToView();
 }
+
 let RootToView = function() { // root of "View"
     let root = document.getElementById("View").textContent;
     document.getElementById("View").textContent = Math.sqrt(root);
@@ -356,380 +360,41 @@ let ResetToView = function() { //Resetting View
     document.getElementById("lepp").src = "Images/2-Calculator/Blanco.png";
     document.getElementById("repp").src = "Images/2-Calculator/Blanco.png";
     document.getElementById("ropp").src = "Images/2-Calculator/Blanco.png";
-   
-}
-let OneToView = function() { // Adding "1" to View
-    let one = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "1";
-
-        buffer="1";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && one.toString() == "0" ) {
-        document.getElementById("View").textContent = "1";
-        buffer="1"
-        document.getElementById("bf").textContent = buffer;
-
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && one.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-1";
-        buffer="-1"
-        document.getElementById("bf").textContent = buffer;
-
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && one.toString() != "0" ) {
-        document.getElementById("View").textContent = one + "1";
-        buffer+="1"
-        document.getElementById("bf").textContent = buffer;
-
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "1";
-
-        operator++;
-        buffer+="1"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
 }
 
-let TwoToView = function() { // Adding "2" to View
-    let two = document.getElementById("View").textContent;
+let numberToView = function(i) { 
+    let savedView = document.getElementById("View").textContent;
     if (operator_equal == null) {
-        document.getElementById("View").textContent = "2";
-        buffer="2";
+        document.getElementById("View").textContent = i;
+        buffer=i;
         document.getElementById("bf").textContent = buffer;
         operator_equal++
     }
-    else if (operator != null && two.toString() == "0" ) {
-        document.getElementById("View").textContent = "2";
-        buffer="2"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && two.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-2";
-        buffer="-2"
+    else if (operator != null && savedView.toString() == "0" ) {
+        document.getElementById("View").textContent = i;
+        buffer=i
         document.getElementById("bf").textContent = buffer;
         operator++;
         operator_equal++
     }
-    else if (operator != null && two.toString() != "0" ) {
-        document.getElementById("View").textContent = two + "2";
-        buffer+="2"
+    else if (operator != null && savedView.toString() == "-0" ) {
+        document.getElementById("View").textContent = "-" + i;
+        buffer="-" + i
+        document.getElementById("bf").textContent = buffer;
+        operator++;
+        operator_equal++
+    }
+    else if (operator != null && savedView.toString() != "0" ) {
+        document.getElementById("View").textContent = savedView + i;
+        buffer+=i
         document.getElementById("bf").textContent = buffer;
         operator++;
         operator_equal++
     }
     else if (operator == null) {
-        document.getElementById("View").textContent = "2";
+        document.getElementById("View").textContent = i;
         operator++;
-        buffer+="2"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
-}
-
-let ThreeToView = function() { // Adding "3" to View
-    let three = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "3";
-        buffer="3";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && three.toString() == "0" ) {
-        document.getElementById("View").textContent = "3";
-        buffer="3"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && three.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-3";
-        buffer="-3"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && three.toString() != "0" ) {
-        document.getElementById("View").textContent = three + "3";
-        buffer+="3"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "3";
-        operator++;
-        buffer+="3"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
-}
-
-let FourToView = function() { // Adding "4" to View
-    let four = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "4";
-        buffer="4";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && four.toString() == "0" ) {
-        document.getElementById("View").textContent = "4";
-        buffer="4"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && four.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-4";
-        buffer="-4"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && four.toString() != "0" ) {
-        document.getElementById("View").textContent = four + "4";
-        buffer+="4"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "4";
-        operator++;
-        buffer+="4"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
-}
-
-let FiveToView = function() { // Adding "5" to View
-    let five = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "5";
-        buffer="5";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && five.toString() == "0" ) {
-        document.getElementById("View").textContent = "5";
-        buffer="5"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && five.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-5";
-        buffer="-5"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && five.toString() != "0" ) {
-        document.getElementById("View").textContent = five + "5";
-        buffer+="5"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "5";
-        operator++;
-        buffer+="5"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
-}
-
-let SixToView = function() { // Adding "6" to View
-    let six = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "6";
-        buffer="6";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && six.toString() == "0" ) {
-        document.getElementById("View").textContent = "6";
-        buffer="6"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && six.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-6";
-        buffer="-6"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && six.toString() != "0" ) {
-        document.getElementById("View").textContent = six + "6";
-        buffer+="6"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "6";
-        operator++;
-        buffer+="6"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
-}
-
-let SevenToView = function() { // Adding "7" to View
-    let seven = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "7";
-        buffer="7";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && seven.toString() == "0" ) {
-        document.getElementById("View").textContent = "7";
-        buffer="7"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && seven.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-7";
-        buffer="-7"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && seven.toString() != "0" ) {
-        document.getElementById("View").textContent = seven + "7";
-        buffer+="7"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "7";
-        operator++;
-        buffer+="7"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
-}
-
-let EightToView = function() { // Adding "8" to View
-    let eight = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "8";
-        buffer="8";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && eight.toString() == "0" ) {
-        document.getElementById("View").textContent = "8";
-        buffer="8"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && eight.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-8";
-        buffer="-8"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && eight.toString() != "0" ) {
-        document.getElementById("View").textContent = eight + "8";
-        buffer+="8"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "8";
-        operator++;
-        buffer+="8"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
-}
-
-let NineToView = function() { // Adding "9" to View
-    let nine = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "9";
-        buffer="9";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && nine.toString() == "0" ) {
-        document.getElementById("View").textContent = "9";
-        buffer="9"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && nine.toString() == "-0" ) {
-        document.getElementById("View").textContent = "-9";
-        buffer="-9"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && nine.toString() != "0" ) {
-        document.getElementById("View").textContent = nine + "9";
-        buffer+="9"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "9";
-        operator++;
-        buffer+="9"
-        document.getElementById("bf").textContent = buffer;
-    }
-    randomNumbers();
-}
-
-let ZeroToView = function() { // Adding "0" to View
-    let zero = document.getElementById("View").textContent;
-    if (operator_equal == null) {
-        document.getElementById("View").textContent = "0";
-        buffer="0";
-        document.getElementById("bf").textContent = buffer;
-        operator_equal++
-    }
-    else if (operator != null && zero.toString() == "0" ) {
-        document.getElementById("View").textContent = "0";
-        buffer="0"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator != null && zero.toString() != "0" ) {
-        document.getElementById("View").textContent = zero + "0";
-        buffer+="0"
-        document.getElementById("bf").textContent = buffer;
-        operator++;
-        operator_equal++
-    }
-    else if (operator == null) {
-        document.getElementById("View").textContent = "0";
-        buffer+="0"
+        buffer+=i
         document.getElementById("bf").textContent = buffer;
     }
     randomNumbers();
@@ -750,7 +415,7 @@ let DotToView = function() { // Adding a dot to View
             buffer="0."
             document.getElementById("bf").textContent = buffer;
             } 
-        else {document.getElementById("View").textContent = dot;}
+        else document.getElementById("View").textContent = dot;
     }
     else{
         if (operator == null) {
@@ -774,108 +439,40 @@ let DotToView = function() { // Adding a dot to View
     randomNumbers();
 }
 
-let PlusToView = function() { // adding "+" to Buffer
-    let plus = document.getElementById("View").textContent;
-    if (buffer != "0" && buffer.endsWith("-") == false && buffer.endsWith("+") == false &&
-    buffer.endsWith("*") == false && buffer.endsWith("/") == false) {
+let pmmdOperatorToView = function(i) { // adding "+" to Buffer
+    let savedView = document.getElementById("View").textContent;
+    if (buffer != "0" &&
+     buffer.endsWith("-") == false &&
+     buffer.endsWith("+") == false &&
+     buffer.endsWith("*") == false &&
+     buffer.endsWith("/") == false) {
         document.getElementById("View").textContent = eval(buffer);
     }
-    if (buffer.endsWith("-") == true || buffer.endsWith("+") == true ||
-    buffer.endsWith("*") == true || buffer.endsWith("/") == true) {
+    if (buffer.endsWith("-") == true ||
+     buffer.endsWith("+") == true ||
+     buffer.endsWith("*") == true ||
+     buffer.endsWith("/") == true) {
         buffer = buffer.substring(0, buffer.length - 1)
     }
-    buffer = buffer + "+";
+    buffer = buffer + i;
     document.getElementById("bf").textContent = buffer;
-    document.getElementById("View").textContent = plus;
+    document.getElementById("View").textContent = savedView;
     operator = null;
     operator_equal++;
+    let randomOperator;
+    if (i === "+")  randomOperator = "plus";
+    if (i === "-")  randomOperator = "minus";
+    if (i === "*")  randomOperator = "multiply";
+    if (i === "/")  randomOperator = "divide";
     randomPic = Math.floor(Math.random()*5 + 1);
     if (side == 0) {
-        document.getElementById("lopp").src = `Images/2-Calculator/plus-${randomPic}.png`;
+        document.getElementById("lopp").src = `Images/2-Calculator/${randomOperator}-${randomPic}.png`;
     }
     if (side == 1) {
-        document.getElementById("ropp").src = `Images/2-Calculator/plus-${randomPic}.png`;
-    }
-
-    phase = 1;
-}
-
-let MinusToView = function() { // adding "-" to Buffer
-    let minus = document.getElementById("View").textContent;
-    if (buffer != "0" && buffer.endsWith("-") == false && buffer.endsWith("+") == false &&
-    buffer.endsWith("*") == false && buffer.endsWith("/") == false) {
-       document.getElementById("View").textContent = eval(buffer);
-    }
-    if (buffer.endsWith("-") == true || buffer.endsWith("+") == true ||
-    buffer.endsWith("*") == true || buffer.endsWith("/") == true) {
-        buffer = buffer.substring(0, buffer.length - 1)
-    }
-
-    buffer = buffer + "-";
-    document.getElementById("bf").textContent = buffer;
-    document.getElementById("View").textContent = minus;
-    operator = null;
-    operator_equal++;
-    randomPic = Math.floor(Math.random()*5 + 1);
-    if (side == 0) {
-        document.getElementById("lopp").src = `Images/2-Calculator/minus-${randomPic}.png`;
-    }
-    if (side == 1) {
-        document.getElementById("ropp").src = `Images/2-Calculator/minus-${randomPic}.png`;
+        document.getElementById("ropp").src = `Images/2-Calculator/${randomOperator}-${randomPic}.png`;
     }
     phase = 1;
 }
-
-let MultiplyToView = function() { // adding "*" to Buffer
-    let multiply = document.getElementById("View").textContent;
-    if (buffer != "0" && buffer.endsWith("-") == false && buffer.endsWith("+") == false &&
-    buffer.endsWith("*") == false && buffer.endsWith("/") == false) {
-        document.getElementById("View").textContent = eval(buffer);
-    }
-    if (buffer.endsWith("-") == true || buffer.endsWith("+") == true ||
-    buffer.endsWith("*") == true || buffer.endsWith("/") == true) {
-        buffer = buffer.substring(0, buffer.length - 1)
-    }
-    buffer = buffer + "*";
-    document.getElementById("bf").textContent = buffer;
-    document.getElementById("View").textContent = multiply;
-    operator = null;
-    operator_equal++;
-    randomPic = Math.floor(Math.random()*5 + 1);
-    if (side == 0) {
-        document.getElementById("lopp").src = `Images/2-Calculator/multiply-${randomPic}.png`;
-    }
-    if (side == 1) {
-        document.getElementById("ropp").src = `Images/2-Calculator/multiply-${randomPic}.png`;
-    }
-    phase = 1;
-}
-
-let DivideToView = function() { // adding "/" to Buffer
-    let divide = document.getElementById("View").textContent;
-    if (buffer != "0" && buffer.endsWith("-") == false && buffer.endsWith("+") == false &&
-    buffer.endsWith("*") == false && buffer.endsWith("/") == false) {
-        document.getElementById("View").textContent = eval(buffer);
-    }
-    if (buffer.endsWith("-") == true || buffer.endsWith("+") == true ||
-    buffer.endsWith("*") == true || buffer.endsWith("/") == true) {
-        buffer = buffer.substring(0, buffer.length - 1)
-    }
-    buffer = buffer + "/";
-    document.getElementById("bf").textContent = buffer;
-    document.getElementById("View").textContent = divide;
-    operator = null;
-    operator_equal++;
-    randomPic = Math.floor(Math.random()*5 + 1);
-    if (side == 0) {
-        document.getElementById("lopp").src = `Images/2-Calculator/divide-${randomPic}.png`;
-    }
-    if (side == 1) {
-        document.getElementById("ropp").src = `Images/2-Calculator/divide-${randomPic}.png`;
-    }
-    phase = 1;
-}
-
 let EqualToView = function() { // evaluating the expression
     if (buffer.includes("--") == true) {
         buffer = buffer.replace("--", "+");
@@ -886,7 +483,7 @@ let EqualToView = function() { // evaluating the expression
     document.getElementById("bf").textContent = buffer;
     operator_equal = null;
     operator++;
-    count = 1;
+    let count = 1;
     for (let i of document.getElementById("View").textContent) {
         randomPic = Math.floor(Math.random()*5 + 1);
         if (side == 0) {
@@ -918,16 +515,16 @@ let EqualToView = function() { // evaluating the expression
                     document.getElementById("rrsp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
                 }
                 else if (i == "-") {
-                    document.getElementById("rrsp"+count).src =  `Images/2-Calculator/minus-${randomPic}.png`;
+                    document.getElementById("rrsp"+count).src = `Images/2-Calculator/minus-${randomPic}.png`;
                 }
                 else if (i == "+") {
-                    document.getElementById("lrsp"+count).src =  `Images/2-Calculator/plus-${randomPic}.png`;
+                    document.getElementById("lrsp"+count).src = `Images/2-Calculator/plus-${randomPic}.png`;
                 }
                 else if (i == "N" || i == "a") {
                     return null;
                 }
                 else {
-                    document.getElementById("rrsp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
+                    document.getElementById("rrsp"+count).src = `Images/2-Calculator/${i}-${randomPic}.png`;
                 }
                 count++;
                 break;
@@ -1025,13 +622,9 @@ let Plus_MinusToView = function() { // adding or removing "-" to View
                     minusMonitor = false;
                     break;
                 }
-                else {
-                    minusMonitor = true
-                }
+                else minusMonitor = true;
             }
-        if (minusMonitor == true) {
-            buff.unshift("-")
-        } 
+        if (minusMonitor == true) buff.unshift("-"); 
         buffer = buff.join("");
         document.getElementById("View").textContent = "-" + plus_minus;
     }
@@ -1041,3 +634,4 @@ let Plus_MinusToView = function() { // adding or removing "-" to View
     }
     randomNumbers();
 }
+

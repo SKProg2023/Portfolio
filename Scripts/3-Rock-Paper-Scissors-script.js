@@ -1,10 +1,12 @@
-   
+"use strict"   
+
+
 let a = ["Rock", "Paper", "Scissors"];
 let win = 0;
 let loose = 0;
 let stalemate = 0;
 
-let ResettoView = function() {
+function ResettoView() {
     win = 0;
     loose = 0;
     stalemate = 0;
@@ -16,149 +18,94 @@ let ResettoView = function() {
     document.getElementById("Stalemate").innerHTML=0;
     document.getElementById("Reset").remove();
     document.getElementById("Comment1").innerHTML="";
-    //document.getElementById("Comment2").innerHTML="";
     document.getElementById("TheEnd").innerHTML="";
     document.getElementById("TopQuestion").src="Images/3-RPS/Question.png";
     document.getElementById("BottomQuestion").src="Images/3-RPS/Question.png";
 }
 
-let RocktoView = function() {
+function RocktoView() {
     document.getElementById("TopQuestion").src="Images/3-RPS/Rock.png";
-    computer = Math.floor(Math.random()*a.length);
+    let computer = Math.floor(Math.random()*a.length);
     if (computer == 0) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
         document.getElementById("Comment1").innerHTML="Rock vs Rock | Stalemate";
-        //document.getElementById("Comment2").innerHTML="Stalemate";
     }
     if (computer == 1) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
         document.getElementById("Comment1").innerHTML="Rock vs Paper | You lost";
-        //document.getElementById("Comment2").innerHTML="You lost";
     }
     if (computer == 2) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         win+=1;
         document.getElementById("Win").innerHTML=win;
         document.getElementById("Comment1").innerHTML="Rock vs Scissors | You win";
-        //document.getElementById("Comment2").innerHTML="You win";
     }
-    if (win == 5) {
-        document.getElementById("TheEnd").innerHTML="YOU WIN!";
-        document.getElementById("RockButton").disabled = true;
-        document.getElementById("PaperButton").disabled = true;
-        document.getElementById("ScissorsButton").disabled = true;
-        let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 37vw; font-size: 2vw";
-        reset.innerHTML = 'Start over';
-        reset.id ='Reset';
-        reset.addEventListener ("click", ResettoView);
-        let body = document.getElementsByTagName("body");
-        document.body.appendChild(reset);
-    }
-    if (loose == 5) {
-        document.getElementById("TheEnd").innerHTML="GAME OVER!";
-        document.getElementById("RockButton").disabled = true;
-        document.getElementById("PaperButton").disabled = true;
-        document.getElementById("ScissorsButton").disabled = true;
-        let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 37vw; font-size: 2vw";
-        reset.innerHTML = 'Start over';
-        reset.id ='Reset';
-        reset.addEventListener ("click", ResettoView);
-        let body = document.getElementsByTagName("body");
-        document.body.appendChild(reset);
-    }
+    looseOrWin();
 }
-let PapertoView = function() {
+
+function PapertoView() {
     document.getElementById("TopQuestion").src="Images/3-RPS/Paper.png";
-    computer = Math.floor(Math.random()*a.length);
+    let computer = Math.floor(Math.random()*a.length);
     if (computer == 0) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         win+=1;
         document.getElementById("Win").innerHTML=win;
         document.getElementById("Comment1").innerHTML="Paper vs Rock | You win";
-        //document.getElementById("Comment2").innerHTML="You win";
     }
     if (computer == 1) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
         document.getElementById("Comment1").innerHTML="Paper vs Paper | Stalemate";
-        //document.getElementById("Comment2").innerHTML="Stalemate";
     }
     if (computer == 2) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
-        document.getElementById("Comment1").innerHTML="Paper vs Scissors | You loose";
-        //document.getElementById("Comment2").innerHTML="You loose";
+        document.getElementById("Comment1").innerHTML="Paper vs Scissors | You lost";
     }
-    if (win == 5) {
-        document.getElementById("TheEnd").innerHTML="YOU WIN!";
-        document.getElementById("RockButton").disabled = true;
-        document.getElementById("PaperButton").disabled = true;
-        document.getElementById("ScissorsButton").disabled = true;
-        let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 37vw; font-size: 2vw";
-        reset.innerHTML = 'Start over';
-        reset.id ='Reset';
-        reset.addEventListener ("click", ResettoView);
-        let body = document.getElementsByTagName("body");
-        document.body.appendChild(reset);
-    }
-    if (loose == 5) {
-        document.getElementById("TheEnd").innerHTML="GAME OVER!";
-        document.getElementById("RockButton").disabled = true;
-        document.getElementById("PaperButton").disabled = true;
-        document.getElementById("ScissorsButton").disabled = true;
-        let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 37vw; font-size: 2vw";
-        reset.innerHTML = 'Start over';
-        reset.id ='Reset';
-        reset.addEventListener ("click", ResettoView);
-        let body = document.getElementsByTagName("body");
-        document.body.appendChild(reset);
-    }
+    looseOrWin();
 }
-let ScissorstoView = function() {
+
+function ScissorstoView() {
     document.getElementById("TopQuestion").src="Images/3-RPS/Scissors.png";
-    computer = Math.floor(Math.random()*a.length);
+    let computer = Math.floor(Math.random()*a.length);
     if (computer == 0) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Rock.png"; 
         loose+=1;
         document.getElementById("Loose").innerHTML=loose;
         document.getElementById("Comment1").innerHTML="Scissors vs Rock | You lost";
-        //document.getElementById("Comment2").innerHTML="You lost";
     }
     if (computer == 1) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Paper.png";
         win+=1;
         document.getElementById("Win").innerHTML=win;
         document.getElementById("Comment1").innerHTML="Scissors vs Paper | You win";
-        //document.getElementById("Comment2").innerHTML="You win";
     }
     if (computer == 2) {
         document.getElementById("BottomQuestion").src="Images/3-RPS/Scissors.png";
         stalemate+=1;
         document.getElementById("Stalemate").innerHTML=stalemate;
         document.getElementById("Comment1").innerHTML="Scissors vs Scissors | Stalemate";
-        //document.getElementById("Comment2").innerHTML="Stalemate";
     }
+    looseOrWin();
+}
+
+function looseOrWin() {
     if (win == 5) {
         document.getElementById("TheEnd").innerHTML="YOU WIN!";
         document.getElementById("RockButton").disabled = true;
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 37vw; font-size: 2vw";
+        reset.style = "position:absolute; left: 61vw; top: 37vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
-        let body = document.getElementsByTagName("body");
         document.body.appendChild(reset);
     }
     if (loose == 5) {
@@ -167,11 +114,10 @@ let ScissorstoView = function() {
         document.getElementById("PaperButton").disabled = true;
         document.getElementById("ScissorsButton").disabled = true;
         let reset = document.createElement('button');
-        reset.style = "position:absolute; left: 60vw; top: 37vw; font-size: 2vw";
+        reset.style = "position:absolute; left: 61vw; top: 37vw; font-size: 2vw";
         reset.innerHTML = 'Start over';
         reset.id ='Reset';
         reset.addEventListener ("click", ResettoView);
-        let body = document.getElementsByTagName("body");
         document.body.appendChild(reset);
     }
 }
