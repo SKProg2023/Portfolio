@@ -13,7 +13,7 @@ let Hangman = function() {
 	document.getElementById("toGo").href = "4-Hangman.html";
 }
 let RPS = function() {
-	document.getElementById("arrow").style = `max-width:30%;transform: rotate(180deg);`
+	document.getElementById("arrow").style = `max-width:30%;transform: rotate(165deg);`
 	document.getElementById("lense").innerHTML = `Rock,  Paper,  Scissors  -  the  famous  game`
     document.getElementById("toGo").innerHTML = "&nbsp; &nbsp; Take a look";
     document.getElementById("toGo").href = "3-Rock-Paper-Scissors.html";
@@ -29,4 +29,10 @@ let Snake = function() {
 	document.getElementById("lense").innerHTML = `My remaster of  classic popular  Snake game`
     document.getElementById("toGo").innerHTML = "&nbsp; &nbsp; Take a look";
     document.getElementById("toGo").href = "5-Snake.html";
+}
+let TicTacToe = function() {
+	document.getElementById("arrow").style = `max-width:30%;transform: rotate(-165deg);`
+	document.getElementById("lense").innerHTML = `TicTacToe  -  computer cannot loose`
+    document.getElementById("toGo").innerHTML = "&nbsp; &nbsp; Take a look";
+    document.getElementById("toGo").href = "7-TicTacToe.html";
 }
