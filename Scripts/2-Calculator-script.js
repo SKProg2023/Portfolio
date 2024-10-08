@@ -227,9 +227,9 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
         }
     }
 
+    randomPic = 1;
     for (let i of document.getElementById("View").textContent) { // filling in placeholders with pictures
         if (phase === 0 && side === 0) {
-            randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
                 document.getElementById("ltpp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
             }
@@ -245,7 +245,6 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
             count++;
         }
         if (phase == 1 && side == 0) {
-            randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
                 document.getElementById("lbtp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
             }
@@ -260,8 +259,8 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
             }
             count++;
         }
+
         if (phase == 0 && side == 1) {
-            randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
                 document.getElementById("rtpp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
             }
@@ -277,7 +276,6 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
             count++;
         }
         if (phase == 1 && side == 1) {
-            randomPic = Math.floor(Math.random()*5 + 1);
             if (i == ".") {
                 document.getElementById("rbtp"+count).src =  `Images/2-Calculator/dot-${randomPic}.png`;
             }
@@ -291,8 +289,9 @@ let randomNumbers = function () { //removing and adding pictures of digits and n
                 document.getElementById("rbtp"+count).src =  `Images/2-Calculator/${i}-${randomPic}.png`;
             }
             count++;
-
-        }   
+        }
+        randomPic++;
+        if (randomPic === 5) randomPic = 1;   
     } 
 }
 
